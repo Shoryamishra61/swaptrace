@@ -3,6 +3,7 @@ import { BatteryCharging, AlertCircle, CheckCircle2, Thermometer, ShieldAlert, Z
 
 export default function PackDiagnosticsView() {
   const [selectedPackId, setSelectedPackId] = useState('PCK-006');
+  const [selectedCellNum, setSelectedCellNum] = useState(9); // Default to cell 9
 
   const packs = [
     {
@@ -48,6 +49,9 @@ export default function PackDiagnosticsView() {
   ];
 
   const currentPack = packs.find(p => p.id === selectedPackId) || packs[1];
+  const activeCellVoltage = currentPack.cells[selectedCellNum - 1] || currentPack.medianVoltage;
+  const activeCellDeltaMv = (activeCellVoltage - currentPack.medianVoltage) * 1000;
+  const isCellFault = Math.abs(activeCellDeltaMv) > 30;
 
   return (
     <div className="view-container">
@@ -70,7 +74,10 @@ export default function PackDiagnosticsView() {
             <button
               key={p.id}
               type="button"
-              onClick={() => setSelectedPackId(p.id)}
+              onClick={() => {
+                setSelectedPackId(p.id);
+                setSelectedCellNum(p.id === 'PCK-006' ? 9 : 1);
+              }}
               style={{
                 padding: '16px',
                 borderRadius: 'var(--radius-md)',
@@ -126,7 +133,7 @@ export default function PackDiagnosticsView() {
 
         {/* 14S Cell Visualization Array */}
         <div style={{ marginBottom: '14px', fontSize: '12px', color: 'var(--text-muted)' }}>
-          INDIVIDUAL CELL VOLTAGE MONITOR (C01 TO C14):
+          INDIVIDUAL CELL VOLTAGE MONITOR (C01 TO C14) — CLICK ANY CELL TO INSPECT:
         </div>
 
         <div className="pack-grid-container">
@@ -134,11 +141,20 @@ export default function PackDiagnosticsView() {
             const cellNum = idx + 1;
             const deltaMv = Math.abs((volt - currentPack.medianVoltage) * 1000);
             const isImbalanced = deltaMv > 30;
+            const isSelected = selectedCellNum === cellNum;
 
             return (
-              <div
+              <button
                 key={cellNum}
+                type="button"
+                onClick={() => setSelectedCellNum(cellNum)}
                 className={`cell-brick ${isImbalanced ? 'imbalanced' : ''}`}
+                style={{
+                  border: isSelected ? '2px solid var(--system-blue)' : undefined,
+                  boxShadow: isSelected ? '0 0 0 2px rgba(0, 113, 227, 0.2)' : undefined,
+                  cursor: 'pointer',
+                  textAlign: 'inherit'
+                }}
               >
                 <div className="cell-label">Cell {cellNum < 10 ? `0${cellNum}` : cellNum}</div>
                 <div className="cell-voltage" style={{ color: isImbalanced ? 'var(--system-red)' : 'var(--text-primary)' }}>
@@ -147,15 +163,64 @@ export default function PackDiagnosticsView() {
                 <div style={{ fontSize: '10px', color: isImbalanced ? 'var(--system-red)' : 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
                   {volt >= currentPack.medianVoltage ? '+' : '-'}{deltaMv.toFixed(1)}mV
                 </div>
-              </div>
+              </button>
             );
           })}
+        </div>
+
+        {/* Interactive Cell Drilldown Card */}
+        <div style={{
+          marginTop: '20px',
+          padding: '16px 20px',
+          backgroundColor: '#fafbfc',
+          borderRadius: 'var(--radius-sm)',
+          border: '1px solid var(--border-subtle)',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: '16px',
+          alignItems: 'center'
+        }}>
+          <div>
+            <div style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>
+              Active Cell Brick
+            </div>
+            <div style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)' }}>
+              Cell {selectedCellNum < 10 ? `0${selectedCellNum}` : selectedCellNum}
+            </div>
+          </div>
+
+          <div>
+            <div style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>
+              Measured Voltage
+            </div>
+            <div style={{ fontSize: '16px', fontWeight: 700, fontFamily: 'var(--font-mono)', color: isCellFault ? 'var(--system-red)' : 'var(--text-primary)' }}>
+              {activeCellVoltage.toFixed(3)} V
+            </div>
+          </div>
+
+          <div>
+            <div style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>
+              Delta from Median
+            </div>
+            <div style={{ fontSize: '16px', fontWeight: 700, fontFamily: 'var(--font-mono)', color: isCellFault ? 'var(--system-red)' : 'var(--system-green)' }}>
+              {activeCellDeltaMv >= 0 ? '+' : ''}{activeCellDeltaMv.toFixed(1)} mV
+            </div>
+          </div>
+
+          <div>
+            <div style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>
+              Electrochemical Status
+            </div>
+            <span className={`badge ${isCellFault ? 'badge-red' : 'badge-green'}`} style={{ marginTop: '2px' }}>
+              {isCellFault ? 'IMBALANCED' : 'BALANCED'}
+            </span>
+          </div>
         </div>
 
         {/* Diagnostic Callout */}
         {currentPack.maxDeltaMv > 30 && (
           <div style={{
-            marginTop: '20px',
+            marginTop: '16px',
             padding: '14px 18px',
             backgroundColor: 'var(--system-red-subtle)',
             borderRadius: 'var(--radius-sm)',

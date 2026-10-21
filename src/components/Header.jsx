@@ -1,7 +1,7 @@
 import React from 'react';
 import { Search, Download, RefreshCw, ChevronRight } from 'lucide-react';
 
-export default function Header({ currentView, searchQuery, onSearchChange, onExportData, onRefresh }) {
+export default function Header({ currentView, searchQuery, onSearchChange, onExportData, onRefresh, onNavigate }) {
   const viewTitles = {
     overview: 'Fleet Command & Diagnostics',
     alerts: 'Incident Triage & Alert Management',
@@ -9,6 +9,7 @@ export default function Header({ currentView, searchQuery, onSearchChange, onExp
     packs: '14S Battery Pack Cell Topology',
     stations: 'Swapping Stations & Charging Docks',
     attribution: 'Physics Attribution & Evidence Engine',
+    defense: 'Adversarial Reviewer Defense & Proofs (Gate 10)',
   };
 
   return (

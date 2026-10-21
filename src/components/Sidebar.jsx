@@ -19,6 +19,7 @@ export default function Sidebar({ currentView, onViewChange, alertCount }) {
     { id: 'packs', label: '14S Pack Topology', icon: BatteryCharging, badge: 'Fleet' },
     { id: 'stations', label: 'Station & Dock Rack', icon: Server, badge: '4 Sites' },
     { id: 'attribution', label: 'Attribution Engine', icon: Cpu, badge: 'Physics' },
+    { id: 'defense', label: 'Reviewer Defense', icon: ShieldCheck, badge: 'Gate 10' },
   ];
 
   return (

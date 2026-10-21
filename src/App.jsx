@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import InspectorDrawer from './components/InspectorDrawer';
+import Toast from './components/Toast';
 
 import FleetOverviewView from './views/FleetOverviewView';
 import AlertsTriageView from './views/AlertsTriageView';
@@ -9,6 +10,7 @@ import WaveformStudioView from './views/WaveformStudioView';
 import PackDiagnosticsView from './views/PackDiagnosticsView';
 import StationCabinetsView from './views/StationCabinetsView';
 import AttributionEngineView from './views/AttributionEngineView';
+import ReviewerDefenseView from './views/ReviewerDefenseView';
 
 import telemetryData from './data/telemetryData';
 
@@ -17,6 +19,19 @@ export default function App() {
   const [selectedAlert, setSelectedAlert] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [alertsState, setAlertsState] = useState(telemetryData.alerts || []);
+  const [toasts, setToasts] = useState([]);
+
+  const addToast = (message, type = 'info') => {
+    const id = Date.now() + Math.random().toString(36).substring(2, 6);
+    setToasts(prev => [...prev, { id, message, type }]);
+    setTimeout(() => {
+      setToasts(prev => prev.filter(t => t.id !== id));
+    }, 4000);
+  };
+
+  const handleDismissToast = (id) => {
+    setToasts(prev => prev.filter(t => t.id !== id));
+  };
 
   const handleSelectAlert = (alert) => {
     setSelectedAlert(alert);
@@ -33,6 +48,7 @@ export default function App() {
     if (selectedAlert && selectedAlert.alert_id === alertId) {
       setSelectedAlert(prev => ({ ...prev, status: 'ACKNOWLEDGED' }));
     }
+    addToast(`Alert ${alertId} status marked as ACKNOWLEDGED.`, 'warning');
   };
 
   const handleResolve = (alertId) => {
@@ -42,6 +58,7 @@ export default function App() {
     if (selectedAlert && selectedAlert.alert_id === alertId) {
       setSelectedAlert(prev => ({ ...prev, status: 'RESOLVED' }));
     }
+    addToast(`Alert ${alertId} successfully marked as RESOLVED.`, 'success');
   };
 
   const handleExportData = () => {
@@ -53,6 +70,14 @@ export default function App() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    addToast('Audit evidence bundle exported as JSON.', 'success');
+  };
+
+  const handleSearchChange = (val) => {
+    setSearchQuery(val);
+    if (val.trim() && currentView !== 'alerts' && currentView !== 'defense') {
+      setCurrentView('alerts');
+    }
   };
 
   const currentDataset = {
@@ -86,6 +111,8 @@ export default function App() {
         return <StationCabinetsView data={currentDataset} />;
       case 'attribution':
         return <AttributionEngineView data={currentDataset} />;
+      case 'defense':
+        return <ReviewerDefenseView />;
       default:
         return (
           <FleetOverviewView
@@ -114,11 +141,12 @@ export default function App() {
         <Header
           currentView={currentView}
           searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
+          onSearchChange={handleSearchChange}
           onExportData={handleExportData}
           onRefresh={() => {
-            alert('Telemetry snapshot synchronized with live stream.');
+            addToast('Telemetry snapshot synchronized with live stream (1,937 sessions).', 'info');
           }}
+          onNavigate={setCurrentView}
         />
 
         <main role="main">
@@ -135,6 +163,9 @@ export default function App() {
           onResolve={handleResolve}
         />
       )}
+
+      {/* Apple HIG Toast Region */}
+      <Toast toasts={toasts} onDismiss={handleDismissToast} />
     </div>
   );
 }

@@ -767,7 +767,106 @@ a:focus-visible {
   border-color: var(--system-red);
 }
 
+/* Toast Notifications (Apple HIG Floating Capsule) */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 28px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  background-color: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  animation: slideUpToast 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  max-width: 380px;
+}
+
+.toast-success {
+  border-left: 4px solid var(--system-green);
+}
+
+.toast-info {
+  border-left: 4px solid var(--system-blue);
+}
+
+.toast-warning {
+  border-left: 4px solid var(--system-amber);
+}
+
+/* Reviewer Defense Accordion / Cards */
+.defense-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.defense-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.defense-header {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.defense-content {
+  padding: 18px 20px 20px 20px;
+  border-top: 1px solid var(--border-subtle);
+  background-color: #fafbfc;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.defense-formula {
+  background-color: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--system-blue);
+  overflow-x: auto;
+}
+
 /* Keyframes */
+@keyframes slideUpToast {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
