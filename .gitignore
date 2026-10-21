@@ -1,0 +1,43 @@
+# Python Virtual Environments
+.venv/
+env/
+venv/
+ENV/
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.hypothesis/
+
+# Linting
+.ruff_cache/
+.mypy_cache/
+
+# Local databases & raw data cache (keep artifacts/ and data/schemas)
+*.db
+*.db-journal
+*.db.wal
+data/swaptrace.db
+data/raw/*.parquet
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node / Vercel
+node_modules/
+.vercel/
+dist/
+npm-debug.log*
