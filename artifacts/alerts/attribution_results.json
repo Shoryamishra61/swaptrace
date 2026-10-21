@@ -1,0 +1,3627 @@
+[
+  {
+    "session_id": "SES-20260910182857-CK-006-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-006 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-006",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-006 is normal elsewhere. | Concurrent anomalies across multiple components detected; confidence capped at MEDIUM."
+  },
+  {
+    "session_id": "SES-20260910185044-CK-002-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-002 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-002",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-002 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260910192704-CK-003-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.5064V",
+          "entity_id": "STA-01-PCK-003",
+          "session_ids": [
+            "SES-20260910192704-CK-003-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-003. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260910195635-CK-006-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-006 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-006",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-006 is normal elsewhere. | Concurrent anomalies across multiple components detected; confidence capped at MEDIUM."
+  },
+  {
+    "session_id": "SES-20260911004457-CK-020-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-020 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-020",
+          "session_ids": [],
+          "count": 2
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-020 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260911010524-CK-010-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=4.1972V",
+          "entity_id": "STA-01-PCK-010",
+          "session_ids": [
+            "SES-20260911010524-CK-010-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-010. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260911014509-CK-014-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260911015505-CK-002-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260911015623-CK-002-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=3.9026V",
+          "entity_id": "STA-01-PCK-002",
+          "session_ids": [
+            "SES-20260911015623-CK-002-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-002. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260911020111-CK-004-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-004 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-004",
+          "session_ids": [],
+          "count": 2
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-004 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260911025237-CK-004-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-004 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-004",
+          "session_ids": [],
+          "count": 2
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-004 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260911044821-CK-001-K-02",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.3575V",
+          "entity_id": "STA-04-PCK-001",
+          "session_ids": [
+            "SES-20260911044821-CK-001-K-02"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-04-PCK-001. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260911053912-CK-017-K-02",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260911073146-CK-003-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260911081304-CK-012-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-012 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-012",
+          "session_ids": [],
+          "count": 2
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-012 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260911092817-CK-010-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=4.0349V",
+          "entity_id": "STA-01-PCK-010",
+          "session_ids": [
+            "SES-20260911092817-CK-010-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-010. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260911094242-CK-016-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-016 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-016",
+          "session_ids": [],
+          "count": 2
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-016 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260911104245-CK-008-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-008 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-008",
+          "session_ids": [],
+          "count": 2
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-008 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260911105935-CK-006-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260911120122-CK-007-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.4497V",
+          "entity_id": "STA-04-PCK-007",
+          "session_ids": [
+            "SES-20260911120122-CK-007-K-01"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-04-PCK-007. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260911123006-CK-018-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260911124229-CK-019-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "ENVIRONMENT"
+    ],
+    "owner_evidence": {
+      "ENVIRONMENT": [
+        {
+          "description": "Measured environmental condition at station STA-03",
+          "entity_id": "STA-03",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "20 packs and 4 docks affected at station",
+          "entity_id": "STA-03",
+          "session_ids": [],
+          "count": 4
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "env_station_packs": 20,
+      "env_station_docks": 4
+    },
+    "selected_owner": "ENVIRONMENT",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Evidence supports ENVIRONMENT: measured site condition at station STA-03 with 20 affected packs and 4 docks. Note: shared station hardware faults are a competing hypothesis."
+  },
+  {
+    "session_id": "SES-20260911124549-CK-006-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=1.8277V",
+          "entity_id": "STA-01-PCK-006",
+          "session_ids": [
+            "SES-20260911124549-CK-006-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-006. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260911125117-CK-019-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260911131243-CK-018-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260911182954-CK-020-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-020 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-020",
+          "session_ids": [],
+          "count": 2
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-020 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260911195657-CK-010-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260912000238-CK-010-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260912001136-CK-013-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-013 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-013",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-013 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260912001653-CK-006-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.7969V",
+          "entity_id": "STA-01-PCK-006",
+          "session_ids": [
+            "SES-20260912001653-CK-006-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-006. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260912021635-CK-013-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-013 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-013",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-013 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260912032025-CK-010-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=3.0236V",
+          "entity_id": "STA-01-PCK-010",
+          "session_ids": [
+            "SES-20260912032025-CK-010-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-010. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260912032219-CK-006-K-02",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=1.1938V",
+          "entity_id": "STA-01-PCK-006",
+          "session_ids": [
+            "SES-20260912032219-CK-006-K-02"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-006. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260912035917-CK-002-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260912045835-CK-018-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260912052158-CK-005-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-005 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-005",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-005 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260912055750-CK-014-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260912065313-CK-002-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=4.0275V",
+          "entity_id": "STA-01-PCK-002",
+          "session_ids": [
+            "SES-20260912065313-CK-002-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-002. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260912072708-CK-009-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-009 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-009",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-009 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260912073421-CK-006-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {
+      "PACK": [
+        {
+          "description": "Pack STA-03-PCK-006 shows anomaly across 4 independent docks",
+          "entity_id": "STA-03-PCK-006",
+          "session_ids": [],
+          "count": 4
+        },
+        {
+          "description": "Other packs at same docks show normal behavior",
+          "entity_id": "STA-03-PCK-006",
+          "session_ids": [],
+          "count": 4
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "PACK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports PACK: anomaly follows pack STA-03-PCK-006 across 4 independent docks; those docks are normal with other packs."
+  },
+  {
+    "session_id": "SES-20260912073958-CK-018-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=4.1376V",
+          "entity_id": "STA-01-PCK-018",
+          "session_ids": [
+            "SES-20260912073958-CK-018-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-018. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260912074015-CK-006-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.3814V",
+          "entity_id": "STA-01-PCK-006",
+          "session_ids": [
+            "SES-20260912074015-CK-006-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-006. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260912083111-CK-005-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-005 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-005",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-005 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260912090324-CK-012-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260912090726-CK-016-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260912090750-CK-017-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-017 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-017",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-017 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260912090905-CK-016-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=1.5104V",
+          "entity_id": "STA-01-PCK-016",
+          "session_ids": [
+            "SES-20260912090905-CK-016-K-01"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-016. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260912094812-CK-016-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=0.9402V",
+          "entity_id": "STA-01-PCK-016",
+          "session_ids": [
+            "SES-20260912094812-CK-016-K-04"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-016. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260912100533-CK-016-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=1.7496V",
+          "entity_id": "STA-01-PCK-016",
+          "session_ids": [
+            "SES-20260912100533-CK-016-K-04"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-016. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260912104140-CK-001-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "CELL_CHEMISTRY",
+      "ENVIRONMENT"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.2464V",
+          "entity_id": "STA-02-PCK-001",
+          "session_ids": [
+            "SES-20260912104140-CK-001-K-01"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {},
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-02-PCK-001. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260912105713-CK-018-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260912122900-CK-016-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260912125638-CK-017-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-017 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-017",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-017 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260912133205-CK-014-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260912134121-CK-006-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {
+      "PACK": [
+        {
+          "description": "Pack STA-03-PCK-006 shows anomaly across 4 independent docks",
+          "entity_id": "STA-03-PCK-006",
+          "session_ids": [],
+          "count": 4
+        },
+        {
+          "description": "Other packs at same docks show normal behavior",
+          "entity_id": "STA-03-PCK-006",
+          "session_ids": [],
+          "count": 4
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "PACK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports PACK: anomaly follows pack STA-03-PCK-006 across 4 independent docks; those docks are normal with other packs."
+  },
+  {
+    "session_id": "SES-20260912142008-CK-016-K-02",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260912145100-CK-010-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260912145417-CK-012-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "ENVIRONMENT"
+    ],
+    "owner_evidence": {
+      "ENVIRONMENT": [
+        {
+          "description": "Measured environmental condition at station STA-03",
+          "entity_id": "STA-03",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "20 packs and 4 docks affected at station",
+          "entity_id": "STA-03",
+          "session_ids": [],
+          "count": 4
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "env_station_packs": 20,
+      "env_station_docks": 4
+    },
+    "selected_owner": "ENVIRONMENT",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Evidence supports ENVIRONMENT: measured site condition at station STA-03 with 20 affected packs and 4 docks. Note: shared station hardware faults are a competing hypothesis."
+  },
+  {
+    "session_id": "SES-20260912145806-CK-020-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260912151450-CK-004-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260912161817-CK-009-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260912163952-CK-010-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=3.9257V",
+          "entity_id": "STA-01-PCK-010",
+          "session_ids": [
+            "SES-20260912163952-CK-010-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-010. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260912170129-CK-009-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-009 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-009",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-009 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260912172059-CK-016-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=1.3977V",
+          "entity_id": "STA-01-PCK-016",
+          "session_ids": [
+            "SES-20260912172059-CK-016-K-01"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-016. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260912175325-CK-001-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-001 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-001",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-001 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260912183615-CK-008-K-02",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260913000646-CK-006-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: cell_voltage_dispersion_excess=0.0213V",
+          "entity_id": "STA-02-PCK-006",
+          "session_ids": [
+            "SES-20260913000646-CK-006-K-01"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {},
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-02-PCK-006. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260913000847-CK-019-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-019 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-019",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-019 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260913004359-CK-020-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260913013145-CK-005-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260913014501-CK-010-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "ENVIRONMENT"
+    ],
+    "owner_evidence": {
+      "ENVIRONMENT": [
+        {
+          "description": "Measured environmental condition at station STA-03",
+          "entity_id": "STA-03",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "20 packs and 4 docks affected at station",
+          "entity_id": "STA-03",
+          "session_ids": [],
+          "count": 4
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "env_station_packs": 20,
+      "env_station_docks": 4
+    },
+    "selected_owner": "ENVIRONMENT",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Evidence supports ENVIRONMENT: measured site condition at station STA-03 with 20 affected packs and 4 docks. Note: shared station hardware faults are a competing hypothesis."
+  },
+  {
+    "session_id": "SES-20260913014839-CK-004-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260913020258-CK-006-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.0008V",
+          "entity_id": "STA-01-PCK-006",
+          "session_ids": [
+            "SES-20260913020258-CK-006-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-006. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260913025423-CK-003-K-02",
+    "episode_id": null,
+    "candidate_owners": [
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: cell_voltage_dispersion_excess=0.0004V",
+          "entity_id": "STA-01-PCK-003",
+          "session_ids": [
+            "SES-20260913025423-CK-003-K-02"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {},
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-003. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260913033254-CK-016-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=1.0418V",
+          "entity_id": "STA-01-PCK-016",
+          "session_ids": [
+            "SES-20260913033254-CK-016-K-04"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-016. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260913042456-CK-003-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: cell_voltage_dispersion_excess=0.0004V",
+          "entity_id": "STA-03-PCK-003",
+          "session_ids": [
+            "SES-20260913042456-CK-003-K-04"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {},
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-03-PCK-003. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260913044506-CK-018-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=3.0631V",
+          "entity_id": "STA-01-PCK-018",
+          "session_ids": [
+            "SES-20260913044506-CK-018-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-018. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260913050136-CK-002-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260913053200-CK-020-K-02",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260913054846-CK-013-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.3358V",
+          "entity_id": "STA-04-PCK-013",
+          "session_ids": [
+            "SES-20260913054846-CK-013-K-01"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-04-PCK-013. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260913074503-CK-010-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260913094437-CK-001-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260913110232-CK-018-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=4.1832V",
+          "entity_id": "STA-01-PCK-018",
+          "session_ids": [
+            "SES-20260913110232-CK-018-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-018. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260913131723-CK-006-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=1.9016V",
+          "entity_id": "STA-01-PCK-006",
+          "session_ids": [
+            "SES-20260913131723-CK-006-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-006. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260913132424-CK-003-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-003 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-003",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-003 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260913133529-CK-004-K-02",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260913140317-CK-015-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-015 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-015",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-015 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260913144723-CK-010-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260913145053-CK-014-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260913151255-CK-006-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=1.4654V",
+          "entity_id": "STA-01-PCK-006",
+          "session_ids": [
+            "SES-20260913151255-CK-006-K-01"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-006. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260913154753-CK-006-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: cell_voltage_dispersion_excess=0.0173V",
+          "entity_id": "STA-02-PCK-006",
+          "session_ids": [
+            "SES-20260913154753-CK-006-K-01"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {},
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-02-PCK-006. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260913155658-CK-019-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "ENVIRONMENT"
+    ],
+    "owner_evidence": {
+      "ENVIRONMENT": [
+        {
+          "description": "Measured environmental condition at station STA-03",
+          "entity_id": "STA-03",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "20 packs and 4 docks affected at station",
+          "entity_id": "STA-03",
+          "session_ids": [],
+          "count": 4
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "env_station_packs": 20,
+      "env_station_docks": 4
+    },
+    "selected_owner": "ENVIRONMENT",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Evidence supports ENVIRONMENT: measured site condition at station STA-03 with 20 affected packs and 4 docks. Note: shared station hardware faults are a competing hypothesis."
+  },
+  {
+    "session_id": "SES-20260913155835-CK-002-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260913163558-CK-016-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=0.7954V",
+          "entity_id": "STA-01-PCK-016",
+          "session_ids": [
+            "SES-20260913163558-CK-016-K-04"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-016. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260913171756-CK-007-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-007 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-007",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-007 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260913180008-CK-013-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260913183339-CK-016-K-02",
+    "episode_id": null,
+    "candidate_owners": [
+      "ENVIRONMENT"
+    ],
+    "owner_evidence": {
+      "ENVIRONMENT": [
+        {
+          "description": "Measured environmental condition at station STA-03",
+          "entity_id": "STA-03",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "20 packs and 4 docks affected at station",
+          "entity_id": "STA-03",
+          "session_ids": [],
+          "count": 4
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "env_station_packs": 20,
+      "env_station_docks": 4
+    },
+    "selected_owner": "ENVIRONMENT",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Evidence supports ENVIRONMENT: measured site condition at station STA-03 with 20 affected packs and 4 docks. Note: shared station hardware faults are a competing hypothesis."
+  },
+  {
+    "session_id": "SES-20260913185751-CK-011-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-011 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-011",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-011 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260913193059-CK-014-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260913195310-CK-019-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "ENVIRONMENT"
+    ],
+    "owner_evidence": {
+      "ENVIRONMENT": [
+        {
+          "description": "Measured environmental condition at station STA-03",
+          "entity_id": "STA-03",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "20 packs and 4 docks affected at station",
+          "entity_id": "STA-03",
+          "session_ids": [],
+          "count": 4
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "env_station_packs": 20,
+      "env_station_docks": 4
+    },
+    "selected_owner": "ENVIRONMENT",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Evidence supports ENVIRONMENT: measured site condition at station STA-03 with 20 affected packs and 4 docks. Note: shared station hardware faults are a competing hypothesis."
+  },
+  {
+    "session_id": "SES-20260914013324-CK-006-K-02",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=1.9117V",
+          "entity_id": "STA-01-PCK-006",
+          "session_ids": [
+            "SES-20260914013324-CK-006-K-02"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-006. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260914015715-CK-018-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: cell_voltage_dispersion_excess=0.0003V",
+          "entity_id": "STA-02-PCK-018",
+          "session_ids": [
+            "SES-20260914015715-CK-018-K-04"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {},
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-02-PCK-018. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260914020745-CK-008-K-02",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260914021931-CK-017-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260914023839-CK-003-K-02",
+    "episode_id": null,
+    "candidate_owners": [
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.2834V",
+          "entity_id": "STA-02-PCK-003",
+          "session_ids": [
+            "SES-20260914023839-CK-003-K-02"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {},
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-02-PCK-003. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260914031843-CK-019-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.5959V",
+          "entity_id": "STA-01-PCK-019",
+          "session_ids": [
+            "SES-20260914031843-CK-019-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-019. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260914034417-CK-007-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260914034649-CK-014-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-014 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-014",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-014 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260914040022-CK-017-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.4205V",
+          "entity_id": "STA-04-PCK-017",
+          "session_ids": [
+            "SES-20260914040022-CK-017-K-01"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-04-PCK-017. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260914043523-CK-002-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-002 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-002",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-002 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260914051319-CK-004-K-02",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260914053107-CK-009-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260914060759-CK-011-K-02",
+    "episode_id": null,
+    "candidate_owners": [
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: cell_voltage_dispersion_excess=0.0002V",
+          "entity_id": "STA-03-PCK-011",
+          "session_ids": [
+            "SES-20260914060759-CK-011-K-02"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {},
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-03-PCK-011. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260914081036-CK-020-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "ENVIRONMENT"
+    ],
+    "owner_evidence": {
+      "ENVIRONMENT": [
+        {
+          "description": "Measured environmental condition at station STA-03",
+          "entity_id": "STA-03",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "20 packs and 4 docks affected at station",
+          "entity_id": "STA-03",
+          "session_ids": [],
+          "count": 4
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "env_station_packs": 20,
+      "env_station_docks": 4
+    },
+    "selected_owner": "ENVIRONMENT",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Evidence supports ENVIRONMENT: measured site condition at station STA-03 with 20 affected packs and 4 docks. Note: shared station hardware faults are a competing hypothesis."
+  },
+  {
+    "session_id": "SES-20260914093234-CK-002-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-002 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-002",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-002 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260914093831-CK-011-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260914100212-CK-015-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.5059V",
+          "entity_id": "STA-01-PCK-015",
+          "session_ids": [
+            "SES-20260914100212-CK-015-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-015. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260914101938-CK-003-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260914101948-CK-013-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.4316V",
+          "entity_id": "STA-04-PCK-013",
+          "session_ids": [
+            "SES-20260914101948-CK-013-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-04-PCK-013. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260914111858-CK-014-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: cell_voltage_dispersion_excess=0.0004V",
+          "entity_id": "STA-01-PCK-014",
+          "session_ids": [
+            "SES-20260914111858-CK-014-K-01"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {},
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-014. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260914114411-CK-013-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.4039V",
+          "entity_id": "STA-04-PCK-013",
+          "session_ids": [
+            "SES-20260914114411-CK-013-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-04-PCK-013. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260914114651-CK-010-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-010 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-010",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-010 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260914125210-CK-003-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.4151V",
+          "entity_id": "STA-01-PCK-003",
+          "session_ids": [
+            "SES-20260914125210-CK-003-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-003. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260914132335-CK-013-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260914132849-CK-011-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY",
+      "ENVIRONMENT"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: cell_voltage_dispersion_excess=0.0002V",
+          "entity_id": "STA-03-PCK-011",
+          "session_ids": [
+            "SES-20260914132849-CK-011-K-04"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-03-PCK-011. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260914135910-CK-007-K-02",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "ENVIRONMENT"
+    ],
+    "owner_evidence": {
+      "ENVIRONMENT": [
+        {
+          "description": "Measured environmental condition at station STA-03",
+          "entity_id": "STA-03",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "20 packs and 4 docks affected at station",
+          "entity_id": "STA-03",
+          "session_ids": [],
+          "count": 4
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4,
+      "env_station_packs": 20,
+      "env_station_docks": 4
+    },
+    "selected_owner": "ENVIRONMENT",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Evidence supports ENVIRONMENT: measured site condition at station STA-03 with 20 affected packs and 4 docks. Note: shared station hardware faults are a competing hypothesis."
+  },
+  {
+    "session_id": "SES-20260914142045-CK-011-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.5461V",
+          "entity_id": "STA-01-PCK-011",
+          "session_ids": [
+            "SES-20260914142045-CK-011-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-011. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260914150838-CK-006-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.0685V",
+          "entity_id": "STA-01-PCK-006",
+          "session_ids": [
+            "SES-20260914150838-CK-006-K-01"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-006. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260914151346-CK-006-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=1.9121V",
+          "entity_id": "STA-01-PCK-006",
+          "session_ids": [
+            "SES-20260914151346-CK-006-K-01"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-006. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260914151350-CK-014-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-014 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-014",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-014 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260914154718-CK-018-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-018 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-018",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-018 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260914154728-CK-006-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-006 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-006",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-006 is normal elsewhere. | Concurrent anomalies across multiple components detected; confidence capped at MEDIUM."
+  },
+  {
+    "session_id": "SES-20260914171051-CK-006-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-006 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-006",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-006 is normal elsewhere. | Concurrent anomalies across multiple components detected; confidence capped at MEDIUM."
+  },
+  {
+    "session_id": "SES-20260914172115-CK-007-K-03",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.0488V",
+          "entity_id": "STA-01-PCK-007",
+          "session_ids": [
+            "SES-20260914172115-CK-007-K-03"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-007. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260914173207-CK-010-K-04",
+    "episode_id": null,
+    "candidate_owners": [
+      "CHARGER_DOCK"
+    ],
+    "owner_evidence": {
+      "CHARGER_DOCK": [
+        {
+          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 20
+        },
+        {
+          "description": "Pack STA-02-PCK-010 shows normal behavior on other docks",
+          "entity_id": "STA-02-PCK-010",
+          "session_ids": [],
+          "count": 3
+        },
+        {
+          "description": "Sibling docks at station show no similar anomaly",
+          "entity_id": "STA-02",
+          "session_ids": [],
+          "count": 3
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "dock_independent_packs": 20
+    },
+    "selected_owner": "CHARGER_DOCK",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "HIGH",
+    "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-010 is normal elsewhere."
+  },
+  {
+    "session_id": "SES-20260914191556-CK-012-K-02",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  },
+  {
+    "session_id": "SES-20260914192207-CK-006-K-02",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK",
+      "CELL_CHEMISTRY"
+    ],
+    "owner_evidence": {
+      "CELL_CHEMISTRY": [
+        {
+          "description": "Cell-level measurement: chemistry_charge_curve_drift=1.3567V",
+          "entity_id": "STA-01-PCK-006",
+          "session_ids": [
+            "SES-20260914192207-CK-006-K-02"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": "CELL_CHEMISTRY",
+    "attribution_status": "ATTRIBUTED",
+    "confidence_semantics": "MEDIUM",
+    "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-006. Note: specific degradation mechanism is unverified \u2014 route to battery engineering."
+  },
+  {
+    "session_id": "SES-20260914193046-CK-005-K-01",
+    "episode_id": null,
+    "candidate_owners": [
+      "PACK"
+    ],
+    "owner_evidence": {},
+    "owner_counterevidence": {},
+    "crossing_support": {
+      "pack_independent_docks": 4
+    },
+    "selected_owner": null,
+    "attribution_status": "INSUFFICIENT_EVIDENCE",
+    "confidence_semantics": "LOW",
+    "explanation": "No anomalies detected."
+  }
+]

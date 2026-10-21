@@ -1,0 +1,50 @@
+{
+  "detection": {
+    "precision": 0.9534883720930233,
+    "recall": 0.22343324250681199,
+    "f1": 0.36203090507726265,
+    "false_alerts_per_1000_healthy": 18.6046511627907
+  },
+  "attribution": {
+    "macro_f1": 0.16374570446735395,
+    "abstention_count": 47,
+    "abstention_coverage": 0.08075601374570447
+  },
+  "scenarios": {
+    "S01_bad_dock": {
+      "pass": true,
+      "evidence": "2 CHARGER_DOCK alerts emitted",
+      "expected": "owner=CHARGER_DOCK, multiple independent packs affected"
+    },
+    "S02_bad_pack": {
+      "pass": true,
+      "evidence": "1 PACK alerts emitted",
+      "expected": "owner=PACK, anomaly follows pack across docks"
+    },
+    "S03_cell_chemistry": {
+      "pass": true,
+      "evidence": "3 CELL_CHEMISTRY alerts emitted",
+      "expected": "owner=CELL_CHEMISTRY, cell-level investigation"
+    },
+    "S04_environment": {
+      "pass": true,
+      "evidence": "1 ENVIRONMENT alerts emitted",
+      "expected": "owner=ENVIRONMENT, measured site condition"
+    },
+    "S05_abstention": {
+      "pass": true,
+      "evidence": "47 INSUFFICIENT_EVIDENCE attributions",
+      "expected": "status=INSUFFICIENT_EVIDENCE, no maintenance alert"
+    }
+  },
+  "metadata": {
+    "seed": 42,
+    "n_test_sessions": 582,
+    "n_healthy": 215,
+    "n_faulty": 367,
+    "n_alerts": 7,
+    "evaluation_ts": "2026-10-21T08:29:30.174845+00:00",
+    "data_provenance": "SYNTHETIC -- semi-synthetic swapping network benchmark",
+    "note": "Results from controlled synthetic benchmark. Not representative of real-world field performance."
+  }
+}
