@@ -1,7 +1,7 @@
-# Ignore large dependencies and training data for ultra-fast Vercel deployment
+# Ignore Python backend, lockfiles, and tests so Vercel builds only the Vite frontend
 uv.lock
 pyproject.toml
-src/
+src/swaptrace/
 tests/
 artifacts/
 app/
