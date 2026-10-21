@@ -1,5 +1,11 @@
-.venv/
+# Ignore Python backend, lockfiles, and tests so Vercel treats this as a pure static deployment
+uv.lock
+pyproject.toml
+src/
+tests/
+artifacts/
+.github/
 .pytest_cache/
-artifacts/scratch/
+.venv/
 __pycache__/
-*.pyc
+*.py
