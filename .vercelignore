@@ -1,0 +1,8 @@
+# Ignore Python backend and tests during Vercel static console deployment
+src/
+tests/
+pyproject.toml
+uv.lock
+artifacts/
+.pytest_cache/
+*.py
