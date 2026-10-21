@@ -1,5 +1,4 @@
-# Ignore Python backend, lockfiles, and tests so Vercel runs only the stdlib entrypoint
-# NOTE: app.py in root is intentionally NOT ignored — it is the Vercel entrypoint
+# Ignore large dependencies and training data for ultra-fast Vercel deployment
 uv.lock
 pyproject.toml
 src/
@@ -8,6 +7,9 @@ artifacts/
 app/
 benchmark/
 scripts/
+data/
+configs/
+docs/
 .github/
 .pytest_cache/
 .venv/
