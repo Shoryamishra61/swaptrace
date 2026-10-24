@@ -1,84 +1,7 @@
 window.SWAPTRACE_DATA = {
   "alerts": [
     {
-      "alert_id": "b01adece-fe6e-4075-832b-ab768eda9d12",
-      "episode_key": "CHARGER_DOCK:STA-04-DOK-01:cell_voltage_dispersion_excess",
-      "owner_category": "CHARGER_DOCK",
-      "owner_team": "charging_infrastructure",
-      "entity_id": "STA-04-DOK-01",
-      "severity": "MEDIUM",
-      "status": "OPEN",
-      "feature_ids": [
-        "cell_voltage_dispersion_excess"
-      ],
-      "observed_value": 0.014191512681343887,
-      "expected_value": 0.00018538197345274732,
-      "observed_unit": "V",
-      "residual_normalized": 297.5351368105646,
-      "evidence": [
-        {
-          "description": "Dock STA-02-DOK-04 has served 20 independent packs",
-          "entity_id": "STA-02-DOK-04",
-          "session_ids": [],
-          "count": 20
-        },
-        {
-          "description": "Pack STA-02-PCK-006 shows normal behavior on other docks",
-          "entity_id": "STA-02-PCK-006",
-          "session_ids": [],
-          "count": 3
-        },
-        {
-          "description": "Sibling docks at station show no similar anomaly",
-          "entity_id": "STA-02",
-          "session_ids": [],
-          "count": 3
-        },
-        {
-          "description": "19 other pack(s) showed the same dock-feature anomaly at STA-02-DOK-04 \u2014 anomaly follows the dock",
-          "entity_id": "STA-02-DOK-04",
-          "session_ids": [],
-          "count": 19
-        },
-        {
-          "description": "Feature cell_voltage_dispersion_excess anomaly: observed=0.014V, expected=0.000V, z-score=297.54",
-          "entity_id": "STA-04-DOK-01",
-          "session_ids": [
-            "SES-20260910182857-CK-006-K-04",
-            "SES-20260910195635-CK-006-K-04",
-            "SES-20260914154728-CK-006-K-04",
-            "SES-20260914171051-CK-006-K-04"
-          ],
-          "count": 4
-        }
-      ],
-      "counterevidence": [],
-      "independent_support_counts": {
-        "dock_independent_packs": 20
-      },
-      "recommended_actions": [
-        "Inspect dock control circuitry and power delivery hardware",
-        "Test contact pins and connector path resistance"
-      ],
-      "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-006 is normal elsewhere. | Concurrent anomalies across multiple components detected; confidence capped at MEDIUM.",
-      "first_seen_ts": "2026-09-10T19:56:35.622681Z",
-      "last_seen_ts": "2026-09-14T17:10:51.833806Z",
-      "opened_at": "2026-10-24T14:13:33.991291Z",
-      "occurrence_count": 4,
-      "baseline_version": "1.0",
-      "pipeline_version": "1.0.0",
-      "data_provenance": "SYNTHETIC",
-      "supporting_session_ids": [
-        "SES-20260910182857-CK-006-K-04",
-        "SES-20260910195635-CK-006-K-04",
-        "SES-20260914154728-CK-006-K-04",
-        "SES-20260914171051-CK-006-K-04"
-      ],
-      "transitions": [],
-      "resolution": null
-    },
-    {
-      "alert_id": "d58980bd-ef57-4565-8e1f-8288f5aef8f2",
+      "alert_id": "4e93cf25-6677-4abf-8f67-59b0830964c5",
       "episode_key": "CHARGER_DOCK:STA-04-DOK-01:dock_contact_resistance_excess",
       "owner_category": "CHARGER_DOCK",
       "owner_team": "charging_infrastructure",
@@ -121,7 +44,9 @@ window.SWAPTRACE_DATA = {
           "description": "Feature dock_contact_resistance_excess anomaly: observed=80.000m\u03a9, expected=0.000m\u03a9, z-score=4.96",
           "entity_id": "STA-04-DOK-01",
           "session_ids": [
+            "SES-20260910182857-CK-006-K-04",
             "SES-20260910185044-CK-002-K-04",
+            "SES-20260910195635-CK-006-K-04",
             "SES-20260911004457-CK-020-K-04",
             "SES-20260911020111-CK-004-K-04",
             "SES-20260911025237-CK-004-K-04",
@@ -149,29 +74,36 @@ window.SWAPTRACE_DATA = {
             "SES-20260914114651-CK-010-K-04",
             "SES-20260914151350-CK-014-K-04",
             "SES-20260914154718-CK-018-K-04",
+            "SES-20260914154728-CK-006-K-04",
+            "SES-20260914171051-CK-006-K-04",
             "SES-20260914173207-CK-010-K-04"
           ],
-          "count": 29
+          "count": 33
         }
       ],
       "counterevidence": [],
       "independent_support_counts": {
-        "dock_independent_packs": 20
+        "dock_independent_packs": 20,
+        "dock_peer_packs_available": 19,
+        "dock_anomalous_peer_packs": 19
       },
       "recommended_actions": [
+        "Inspect dock connector, contact pins, and cable path.",
         "Inspect dock control circuitry and power delivery hardware",
         "Test contact pins and connector path resistance"
       ],
-      "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-020 is normal elsewhere.",
-      "first_seen_ts": "2026-09-11T00:44:57.528276Z",
+      "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-002 is normal elsewhere.",
+      "first_seen_ts": "2026-09-10T18:50:44.207594Z",
       "last_seen_ts": "2026-09-14T17:32:07.174550Z",
-      "opened_at": "2026-10-24T14:13:33.993004Z",
-      "occurrence_count": 29,
+      "opened_at": "2026-10-24T16:03:10.054290Z",
+      "occurrence_count": 33,
       "baseline_version": "1.0",
       "pipeline_version": "1.0.0",
       "data_provenance": "SYNTHETIC",
       "supporting_session_ids": [
+        "SES-20260910182857-CK-006-K-04",
         "SES-20260910185044-CK-002-K-04",
+        "SES-20260910195635-CK-006-K-04",
         "SES-20260911004457-CK-020-K-04",
         "SES-20260911020111-CK-004-K-04",
         "SES-20260911025237-CK-004-K-04",
@@ -199,26 +131,28 @@ window.SWAPTRACE_DATA = {
         "SES-20260914114651-CK-010-K-04",
         "SES-20260914151350-CK-014-K-04",
         "SES-20260914154718-CK-018-K-04",
+        "SES-20260914154728-CK-006-K-04",
+        "SES-20260914171051-CK-006-K-04",
         "SES-20260914173207-CK-010-K-04"
       ],
       "transitions": [],
       "resolution": null
     },
     {
-      "alert_id": "1a68249f-872b-43f2-ad4a-7dae655ed52e",
-      "episode_key": "CELL_CHEMISTRY:STA-04-PCK-017:pack_self_heating_excess",
+      "alert_id": "cef6672e-6958-4c0d-9a50-a2cb30f60d82",
+      "episode_key": "CELL_CHEMISTRY:STA-04-PCK-017:chemistry_charge_curve_drift",
       "owner_category": "CELL_CHEMISTRY",
       "owner_team": "cell_engineering",
       "entity_id": "STA-04-PCK-017",
       "severity": "MEDIUM",
       "status": "OPEN",
       "feature_ids": [
-        "pack_self_heating_excess"
+        "chemistry_charge_curve_drift"
       ],
-      "observed_value": 12.704297501046653,
-      "expected_value": 7.009122783962873,
-      "observed_unit": "\u00b0C",
-      "residual_normalized": 16.733033594988687,
+      "observed_value": 1.3567123481198577,
+      "expected_value": 3.6885953349412413,
+      "observed_unit": "V",
+      "residual_normalized": 8.55206234236518,
       "evidence": [
         {
           "description": "Cell-level measurement: chemistry_charge_curve_drift=1.3567V",
@@ -229,14 +163,16 @@ window.SWAPTRACE_DATA = {
           "count": 1
         },
         {
-          "description": "Feature pack_self_heating_excess anomaly: observed=12.704\u00b0C, expected=5.353\u00b0C, z-score=16.73",
+          "description": "Feature chemistry_charge_curve_drift anomaly: observed=1.357V, expected=2.984V, z-score=8.55",
           "entity_id": "STA-04-PCK-017",
           "session_ids": [
             "SES-20260910192704-CK-003-K-03",
             "SES-20260911010524-CK-010-K-03",
             "SES-20260911015623-CK-002-K-03",
+            "SES-20260911044821-CK-001-K-02",
             "SES-20260911092817-CK-010-K-03",
             "SES-20260911120122-CK-007-K-01",
+            "SES-20260911124549-CK-006-K-03",
             "SES-20260912001653-CK-006-K-03",
             "SES-20260912032025-CK-010-K-03",
             "SES-20260912032219-CK-006-K-02",
@@ -246,19 +182,24 @@ window.SWAPTRACE_DATA = {
             "SES-20260912090905-CK-016-K-01",
             "SES-20260912094812-CK-016-K-04",
             "SES-20260912100533-CK-016-K-04",
+            "SES-20260912104140-CK-001-K-01",
             "SES-20260912163952-CK-010-K-03",
             "SES-20260912172059-CK-016-K-01",
             "SES-20260913020258-CK-006-K-03",
             "SES-20260913033254-CK-016-K-04",
             "SES-20260913044506-CK-018-K-03",
+            "SES-20260913054846-CK-013-K-01",
             "SES-20260913110232-CK-018-K-03",
             "SES-20260913131723-CK-006-K-03",
             "SES-20260913151255-CK-006-K-01",
             "SES-20260913163558-CK-016-K-04",
             "SES-20260914013324-CK-006-K-02",
+            "SES-20260914023839-CK-003-K-02",
             "SES-20260914031843-CK-019-K-03",
+            "SES-20260914040022-CK-017-K-01",
             "SES-20260914100212-CK-015-K-03",
             "SES-20260914101948-CK-013-K-03",
+            "SES-20260914114411-CK-013-K-03",
             "SES-20260914125210-CK-003-K-03",
             "SES-20260914142045-CK-011-K-03",
             "SES-20260914150838-CK-006-K-01",
@@ -266,7 +207,7 @@ window.SWAPTRACE_DATA = {
             "SES-20260914172115-CK-007-K-03",
             "SES-20260914192207-CK-006-K-02"
           ],
-          "count": 33
+          "count": 40
         }
       ],
       "counterevidence": [],
@@ -274,14 +215,15 @@ window.SWAPTRACE_DATA = {
         "pack_independent_docks": 4
       },
       "recommended_actions": [
+        "Battery engineering investigation of chemistry/aging signature.",
         "Inspect individual cell voltages under controlled conditions",
         "Validate cell voltage sensor calibration"
       ],
       "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-010. Note: specific degradation mechanism is unverified \u2014 route to battery engineering.",
       "first_seen_ts": "2026-09-11T01:05:24.349323Z",
       "last_seen_ts": "2026-09-14T19:22:07.780860Z",
-      "opened_at": "2026-10-24T14:13:33.994456Z",
-      "occurrence_count": 33,
+      "opened_at": "2026-10-24T16:03:10.057317Z",
+      "occurrence_count": 40,
       "baseline_version": "1.0",
       "pipeline_version": "1.0.0",
       "data_provenance": "SYNTHETIC",
@@ -289,8 +231,10 @@ window.SWAPTRACE_DATA = {
         "SES-20260910192704-CK-003-K-03",
         "SES-20260911010524-CK-010-K-03",
         "SES-20260911015623-CK-002-K-03",
+        "SES-20260911044821-CK-001-K-02",
         "SES-20260911092817-CK-010-K-03",
         "SES-20260911120122-CK-007-K-01",
+        "SES-20260911124549-CK-006-K-03",
         "SES-20260912001653-CK-006-K-03",
         "SES-20260912032025-CK-010-K-03",
         "SES-20260912032219-CK-006-K-02",
@@ -300,19 +244,24 @@ window.SWAPTRACE_DATA = {
         "SES-20260912090905-CK-016-K-01",
         "SES-20260912094812-CK-016-K-04",
         "SES-20260912100533-CK-016-K-04",
+        "SES-20260912104140-CK-001-K-01",
         "SES-20260912163952-CK-010-K-03",
         "SES-20260912172059-CK-016-K-01",
         "SES-20260913020258-CK-006-K-03",
         "SES-20260913033254-CK-016-K-04",
         "SES-20260913044506-CK-018-K-03",
+        "SES-20260913054846-CK-013-K-01",
         "SES-20260913110232-CK-018-K-03",
         "SES-20260913131723-CK-006-K-03",
         "SES-20260913151255-CK-006-K-01",
         "SES-20260913163558-CK-016-K-04",
         "SES-20260914013324-CK-006-K-02",
+        "SES-20260914023839-CK-003-K-02",
         "SES-20260914031843-CK-019-K-03",
+        "SES-20260914040022-CK-017-K-01",
         "SES-20260914100212-CK-015-K-03",
         "SES-20260914101948-CK-013-K-03",
+        "SES-20260914114411-CK-013-K-03",
         "SES-20260914125210-CK-003-K-03",
         "SES-20260914142045-CK-011-K-03",
         "SES-20260914150838-CK-006-K-01",
@@ -324,74 +273,7 @@ window.SWAPTRACE_DATA = {
       "resolution": null
     },
     {
-      "alert_id": "5aaddffd-c566-41d8-a9ba-7157c779dbdf",
-      "episode_key": "CELL_CHEMISTRY:STA-04-PCK-017:chemistry_charge_curve_drift",
-      "owner_category": "CELL_CHEMISTRY",
-      "owner_team": "cell_engineering",
-      "entity_id": "STA-04-PCK-017",
-      "severity": "MEDIUM",
-      "status": "OPEN",
-      "feature_ids": [
-        "chemistry_charge_curve_drift"
-      ],
-      "observed_value": 2.403921553071421,
-      "expected_value": 2.5881859654659505,
-      "observed_unit": "V",
-      "residual_normalized": 23.13867711526599,
-      "evidence": [
-        {
-          "description": "Cell-level measurement: chemistry_charge_curve_drift=2.4039V",
-          "entity_id": "STA-04-PCK-013",
-          "session_ids": [
-            "SES-20260914114411-CK-013-K-03"
-          ],
-          "count": 1
-        },
-        {
-          "description": "Feature chemistry_charge_curve_drift anomaly: observed=2.404V, expected=2.204V, z-score=23.14",
-          "entity_id": "STA-04-PCK-017",
-          "session_ids": [
-            "SES-20260911044821-CK-001-K-02",
-            "SES-20260911124549-CK-006-K-03",
-            "SES-20260912104140-CK-001-K-01",
-            "SES-20260913054846-CK-013-K-01",
-            "SES-20260914023839-CK-003-K-02",
-            "SES-20260914040022-CK-017-K-01",
-            "SES-20260914114411-CK-013-K-03"
-          ],
-          "count": 7
-        }
-      ],
-      "counterevidence": [],
-      "independent_support_counts": {
-        "pack_independent_docks": 4
-      },
-      "recommended_actions": [
-        "Inspect individual cell voltages under controlled conditions",
-        "Validate cell voltage sensor calibration"
-      ],
-      "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-006. Note: specific degradation mechanism is unverified \u2014 route to battery engineering.",
-      "first_seen_ts": "2026-09-11T12:45:49.727453Z",
-      "last_seen_ts": "2026-09-14T11:44:11.509235Z",
-      "opened_at": "2026-10-24T14:13:33.998235Z",
-      "occurrence_count": 7,
-      "baseline_version": "1.0",
-      "pipeline_version": "1.0.0",
-      "data_provenance": "SYNTHETIC",
-      "supporting_session_ids": [
-        "SES-20260911044821-CK-001-K-02",
-        "SES-20260911124549-CK-006-K-03",
-        "SES-20260912104140-CK-001-K-01",
-        "SES-20260913054846-CK-013-K-01",
-        "SES-20260914023839-CK-003-K-02",
-        "SES-20260914040022-CK-017-K-01",
-        "SES-20260914114411-CK-013-K-03"
-      ],
-      "transitions": [],
-      "resolution": null
-    },
-    {
-      "alert_id": "bde46ecc-6db9-4bf2-9cff-4298cd1d83ba",
+      "alert_id": "d8721241-f81e-4e15-9ac5-1d6471f053a2",
       "episode_key": "PACK:STA-04-PCK-017:pack_electrical_response_anomaly",
       "owner_category": "PACK",
       "owner_team": "battery_service",
@@ -433,13 +315,14 @@ window.SWAPTRACE_DATA = {
         "pack_independent_docks": 4
       },
       "recommended_actions": [
+        "Run pack electrical diagnostics and BMS health check.",
         "Run pack electrical diagnostics (BMS health check)",
         "Inspect pack thermal system and temperature sensors"
       ],
       "explanation": "Evidence supports PACK: anomaly follows pack STA-03-PCK-006 across 4 independent docks; those docks are normal with other packs.",
       "first_seen_ts": "2026-09-12T13:41:21.417603Z",
       "last_seen_ts": "2026-09-12T13:41:21.417603Z",
-      "opened_at": "2026-10-24T14:13:34.004362Z",
+      "opened_at": "2026-10-24T16:03:10.076662Z",
       "occurrence_count": 2,
       "baseline_version": "1.0",
       "pipeline_version": "1.0.0",
@@ -452,7 +335,7 @@ window.SWAPTRACE_DATA = {
       "resolution": null
     },
     {
-      "alert_id": "bf8539b3-d829-4869-aeba-2083fe4a5d05",
+      "alert_id": "1b42c200-f175-4f69-809a-a1ef5a2a5b9c",
       "episode_key": "ENVIRONMENT:STA-04:env_sitewide_heat_derate",
       "owner_category": "ENVIRONMENT",
       "owner_team": "site_facilities",
@@ -501,13 +384,14 @@ window.SWAPTRACE_DATA = {
         "env_station_docks": 4
       },
       "recommended_actions": [
+        "Inspect site cooling, ventilation, and shared thermal infrastructure.",
         "Inspect site cooling, HVAC, and ventilation systems",
         "Check upstream electrical supply and distribution"
       ],
       "explanation": "Evidence supports ENVIRONMENT: measured site condition at station STA-03 with 20 affected packs and 4 docks. Note: shared station hardware faults are a competing hypothesis.",
       "first_seen_ts": "2026-09-12T14:54:17.205455Z",
       "last_seen_ts": "2026-09-14T13:59:10.423845Z",
-      "opened_at": "2026-10-24T14:13:34.005049Z",
+      "opened_at": "2026-10-24T16:03:10.077595Z",
       "occurrence_count": 8,
       "baseline_version": "1.0",
       "pipeline_version": "1.0.0",
@@ -526,7 +410,7 @@ window.SWAPTRACE_DATA = {
       "resolution": null
     },
     {
-      "alert_id": "2f448712-e7b6-4ec8-aeb9-3bd0b3786fb2",
+      "alert_id": "c3c55e8f-eaa6-462a-b660-99988f4c467c",
       "episode_key": "CELL_CHEMISTRY:STA-04-PCK-017:cell_voltage_dispersion_excess",
       "owner_category": "CELL_CHEMISTRY",
       "owner_team": "cell_engineering",
@@ -536,21 +420,21 @@ window.SWAPTRACE_DATA = {
       "feature_ids": [
         "cell_voltage_dispersion_excess"
       ],
-      "observed_value": 0.00037646506470068175,
+      "observed_value": 0.00015428248528204236,
       "expected_value": 0.00019730481990576365,
       "observed_unit": "V",
-      "residual_normalized": 3.106561433709,
+      "residual_normalized": 4.043756416319662,
       "evidence": [
         {
-          "description": "Cell-level measurement: cell_voltage_dispersion_excess=0.0004V",
-          "entity_id": "STA-01-PCK-014",
+          "description": "Cell-level measurement: cell_voltage_dispersion_excess=0.0002V",
+          "entity_id": "STA-03-PCK-011",
           "session_ids": [
-            "SES-20260914111858-CK-014-K-01"
+            "SES-20260914132849-CK-011-K-04"
           ],
           "count": 1
         },
         {
-          "description": "Feature cell_voltage_dispersion_excess anomaly: observed=0.000V, expected=0.000V, z-score=3.11",
+          "description": "Feature cell_voltage_dispersion_excess anomaly: observed=0.000V, expected=0.000V, z-score=4.04",
           "entity_id": "STA-04-PCK-017",
           "session_ids": [
             "SES-20260913000646-CK-006-K-01",
@@ -559,22 +443,24 @@ window.SWAPTRACE_DATA = {
             "SES-20260913154753-CK-006-K-01",
             "SES-20260914015715-CK-018-K-04",
             "SES-20260914060759-CK-011-K-02",
-            "SES-20260914111858-CK-014-K-01"
+            "SES-20260914111858-CK-014-K-01",
+            "SES-20260914132849-CK-011-K-04"
           ],
-          "count": 7
+          "count": 8
         }
       ],
       "counterevidence": [],
       "independent_support_counts": {},
       "recommended_actions": [
+        "Inspect suspect cells and validate cell voltage sensors. Route to battery engineering.",
         "Inspect individual cell voltages under controlled conditions",
         "Validate cell voltage sensor calibration"
       ],
       "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-003. Note: specific degradation mechanism is unverified \u2014 route to battery engineering.",
       "first_seen_ts": "2026-09-13T02:54:23.523238Z",
-      "last_seen_ts": "2026-09-14T11:18:58.502379Z",
-      "opened_at": "2026-10-24T14:13:34.007942Z",
-      "occurrence_count": 7,
+      "last_seen_ts": "2026-09-14T13:28:49.755433Z",
+      "opened_at": "2026-10-24T16:03:10.082833Z",
+      "occurrence_count": 8,
       "baseline_version": "1.0",
       "pipeline_version": "1.0.0",
       "data_provenance": "SYNTHETIC",
@@ -585,7 +471,8 @@ window.SWAPTRACE_DATA = {
         "SES-20260913154753-CK-006-K-01",
         "SES-20260914015715-CK-018-K-04",
         "SES-20260914060759-CK-011-K-02",
-        "SES-20260914111858-CK-014-K-01"
+        "SES-20260914111858-CK-014-K-01",
+        "SES-20260914132849-CK-011-K-04"
       ],
       "transitions": [],
       "resolution": null
@@ -593,9 +480,9 @@ window.SWAPTRACE_DATA = {
   ],
   "evalReport": {
     "detection": {
-      "precision": 0.9534883720930233,
-      "recall": 0.22343324250681199,
-      "f1": 0.36203090507726265,
+      "precision": 0.9540229885057471,
+      "recall": 0.22615803814713897,
+      "f1": 0.3656387665198238,
       "false_alerts_per_1000_healthy": 18.6046511627907
     },
     "attribution": {
@@ -606,7 +493,7 @@ window.SWAPTRACE_DATA = {
     "scenarios": {
       "S01_bad_dock": {
         "pass": true,
-        "evidence": "2 CHARGER_DOCK alerts emitted",
+        "evidence": "1 CHARGER_DOCK alerts emitted",
         "expected": "owner=CHARGER_DOCK, multiple independent packs affected"
       },
       "S02_bad_pack": {
@@ -616,7 +503,7 @@ window.SWAPTRACE_DATA = {
       },
       "S03_cell_chemistry": {
         "pass": true,
-        "evidence": "3 CELL_CHEMISTRY alerts emitted",
+        "evidence": "2 CELL_CHEMISTRY alerts emitted",
         "expected": "owner=CELL_CHEMISTRY, cell-level investigation"
       },
       "S04_environment": {
@@ -630,13 +517,36 @@ window.SWAPTRACE_DATA = {
         "expected": "status=INSUFFICIENT_EVIDENCE, no maintenance alert"
       }
     },
+    "ablations": {
+      "A0_static_global_threshold": {
+        "detection_f1": 0.7900968783638321,
+        "false_alerts_per_1000": 906.9767441860464,
+        "attribution_macro_f1": 0.0
+      },
+      "A1_contextual_residual": {
+        "detection_f1": 0.7900968783638321,
+        "false_alerts_per_1000": 906.9767441860464,
+        "attribution_macro_f1": 0.0
+      },
+      "A2_contextual_persistence": {
+        "detection_f1": 0.7649769585253455,
+        "false_alerts_per_1000": 786.046511627907,
+        "attribution_macro_f1": 0.0
+      },
+      "A3_full_pipeline": {
+        "detection_f1": 0.3656387665198238,
+        "false_alerts_per_1000": 18.6046511627907,
+        "attribution_macro_f1": 0.16374570446735395,
+        "abstention_coverage": 0.08075601374570447
+      }
+    },
     "metadata": {
       "seed": 42,
       "n_test_sessions": 582,
       "n_healthy": 215,
       "n_faulty": 367,
-      "n_alerts": 7,
-      "evaluation_ts": "2026-10-24T14:14:50.945980+00:00",
+      "n_alerts": 5,
+      "evaluation_ts": "2026-10-24T16:03:12.550935+00:00",
       "data_provenance": "SYNTHETIC -- semi-synthetic swapping network benchmark",
       "note": "Results from controlled synthetic benchmark. Not representative of real-world field performance."
     }

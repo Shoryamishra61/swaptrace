@@ -41,3 +41,4 @@ node_modules/
 .vercel/
 dist/
 npm-debug.log*
+debug.log

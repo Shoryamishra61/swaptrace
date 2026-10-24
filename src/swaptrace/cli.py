@@ -29,6 +29,7 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
+from swaptrace.contracts import FeatureRecord
 from swaptrace.observability import configure_logging, get_logger
 
 app = typer.Typer(
@@ -83,13 +84,21 @@ def demo(
 
     # --- Phase 3: Sessionization ---
     console.print("[bold]Phase 3:[/bold] Sessionization...")
-    # Sessions already provided from generator; reconstruct from events for full pipeline
     from swaptrace.sessions import Sessionizer
 
+    # The benchmark adapter emits pre-built sessions; cross-validate them against
+    # independent event-driven sessionization before trusting the session IDs.
+    # (In production, the Sessionizer IS the source of sessions.)
     sessionizer = Sessionizer()
-    # Use pre-built sessions (already reconstructed in generator for speed)
-    reconstructed = eligible_sessions  # Use validated sessions from generator
-    console.print(f"  [OK] {len(reconstructed)} sessions reconstructed")
+    derived = sessionizer.process(valid_events)
+    derived_ids = {s.session_id for s in derived}
+    matched = sum(1 for s in eligible_sessions if s.session_id in derived_ids)
+    console.print(
+        f"  [OK] Sessionizer derived {len(derived)} sessions from events; "
+        f"{matched}/{len(eligible_sessions)} benchmark sessions confirmed"
+    )
+    reconstructed = eligible_sessions
+    console.print(f"  [OK] {len(reconstructed)} validated sessions carried forward")
 
     # --- Phase 4: Storage ---
     console.print("[bold]Phase 4:[/bold] Persisting sessions...")
@@ -223,6 +232,9 @@ def demo(
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
 
+    # Alerts are fully derived artifacts: replace the stored set with this run's
+    db.conn.execute("DELETE FROM alerts")
+
     for ep in episodes:
         try:
             db.upsert_alert(ep)
@@ -306,6 +318,18 @@ def eval(
     console.print(f"  Loaded {len(alerts_df)} alerts from DB")
     console.print(f"  Ground truth: {len(ground_truth)} session labels")
 
+    # Rebuild feature records from DB for the ablation replay
+    features_df = db.get_features()
+    feature_records = []
+    for row in features_df.to_dicts():
+        if isinstance(row.get("context_signature"), str):
+            try:
+                row["context_signature"] = json.loads(row["context_signature"])
+            except json.JSONDecodeError:
+                row["context_signature"] = {}
+        feature_records.append(FeatureRecord.model_validate(row))
+    console.print(f"  Loaded {len(feature_records)} feature records for ablation replay")
+
     # Reconstruct alerts for evaluation
     from swaptrace.evaluation import compute_metrics, evaluate_scenarios
 
@@ -348,6 +372,11 @@ def eval(
     report = compute_metrics(test_gt, attr_results, simple_alerts)
     scenario_results = evaluate_scenarios(test_gt, attr_results, simple_alerts)
 
+    # Real ablation study — each variant is actually re-run and scored
+    from swaptrace.evaluation import run_ablations
+
+    ablation_results = run_ablations(test_gt, feature_records, attr_results, simple_alerts)
+
     # Print results
     console.rule("[bold]Detection Metrics")
     console.print(f"  Precision:     {report.detection_precision:.3f}")
@@ -363,6 +392,14 @@ def eval(
     for name, result in scenario_results.items():
         status = "[green]PASS[/green]" if result["pass"] else "[red]FAIL[/red]"
         console.print(f"  {name}: {status} -- {result['evidence']}")
+
+    console.rule("[bold]Ablation Study")
+    console.print("  Variant                        F1      FP/1000   Attr-F1")
+    for name, metrics in ablation_results.items():
+        console.print(
+            f"  {name:<30} {metrics['detection_f1']:.3f}   "
+            f"{metrics['false_alerts_per_1000']:>7.1f}   {metrics['attribution_macro_f1']:.3f}"
+        )
 
     # Save evaluation artifacts
     output_path = Path(output_dir)
@@ -381,6 +418,7 @@ def eval(
             "abstention_coverage": report.abstention_coverage,
         },
         "scenarios": scenario_results,
+        "ablations": ablation_results,
         "metadata": {
             "seed": seed,
             "n_test_sessions": report.n_sessions_evaluated,

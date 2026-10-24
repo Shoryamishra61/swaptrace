@@ -228,7 +228,8 @@ def attribute_session(
                 if graph.anomaly_registry.get((sib, fid)):
                     sibling_anomalous = True
 
-        n_independent_packs_supporting = len(other_packs_at_dock)
+        crossing_support["dock_peer_packs_available"] = len(other_packs_at_dock)
+        crossing_support["dock_anomalous_peer_packs"] = len(anomalous_other_packs)
 
         if dock_crossing >= MIN_INDEPENDENT_PACKS_FOR_DOCK and not pack_anomalous_elsewhere:
             evidence[OwnerCategory.CHARGER_DOCK.value].append(

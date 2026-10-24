@@ -13425,8 +13425,8 @@
       "CELL_CHEMISTRY"
     ],
     "fault_types": [
-      "dock_contact_degradation",
-      "chemistry_curve_drift"
+      "chemistry_curve_drift",
+      "dock_contact_degradation"
     ],
     "concurrent_faults": true
   },
@@ -13503,8 +13503,8 @@
       "CELL_CHEMISTRY"
     ],
     "fault_types": [
-      "dock_contact_degradation",
-      "chemistry_curve_drift"
+      "chemistry_curve_drift",
+      "dock_contact_degradation"
     ],
     "concurrent_faults": true
   },
@@ -15076,8 +15076,8 @@
       "CELL_CHEMISTRY"
     ],
     "fault_types": [
-      "dock_contact_degradation",
-      "cell_voltage_divergence"
+      "cell_voltage_divergence",
+      "dock_contact_degradation"
     ],
     "concurrent_faults": true
   },
@@ -15154,8 +15154,8 @@
       "CELL_CHEMISTRY"
     ],
     "fault_types": [
-      "dock_contact_degradation",
-      "cell_voltage_divergence"
+      "cell_voltage_divergence",
+      "dock_contact_degradation"
     ],
     "concurrent_faults": true
   },
@@ -16828,8 +16828,8 @@
       "CELL_CHEMISTRY"
     ],
     "fault_types": [
-      "dock_contact_degradation",
-      "chemistry_curve_drift"
+      "chemistry_curve_drift",
+      "dock_contact_degradation"
     ],
     "concurrent_faults": true
   },
@@ -22566,8 +22566,8 @@
       "CELL_CHEMISTRY"
     ],
     "fault_types": [
-      "dock_contact_degradation",
-      "cell_voltage_divergence"
+      "cell_voltage_divergence",
+      "dock_contact_degradation"
     ],
     "concurrent_faults": true
   },
@@ -22644,8 +22644,8 @@
       "CELL_CHEMISTRY"
     ],
     "fault_types": [
-      "dock_contact_degradation",
-      "cell_voltage_divergence"
+      "cell_voltage_divergence",
+      "dock_contact_degradation"
     ],
     "concurrent_faults": true
   },

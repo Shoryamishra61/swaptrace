@@ -25,53 +25,53 @@ export default function ReviewerDefenseView() {
       category: 'ATTRIBUTION',
       question: "Why isn't Isolation Forest enough?",
       defense: "Detection alone does not identify operational ownership. An Isolation Forest or autoencoder residual anomaly score on pack voltage or temperature flags that something is anomalous, but cannot answer the critical warranty question: Is the battery pack degrading, or is the charging bay's contact pin corroded? SwapTrace introduces counterfactual marginal attributions over crossed observations to resolve ownership.",
-      formula: "Attribution(E) = \\arg\\max_{k \\in \\{\\text{Pack}, \\text{Dock}, \\text{Grid}, \\text{Env}\\}} P(E = k \\mid \\Delta \\vec{R}_{crossed}, \\vec{z}_{residuals})",
-      codeRef: "src/swaptrace/attribution/engine.py:L45-L92",
+      formula: "Attribution(E) = \\arg\\max_{k \\in \\{\\text{Dock}, \\text{Pack}, \\text{Chemistry}, \\text{Env}\\}} \\text{evidence}(k) \\text{ s.t. crossing support} \\ge \\tau_{min}, \\text{ else ABSTAIN}",
+      codeRef: "src/swaptrace/attribution/__init__.py (attribute_session)",
       dodGate: "Gate 10.1 · PRD §3.2"
     },
     {
       id: 2,
       category: 'ATTRIBUTION',
       question: "How do you distinguish pack from dock?",
-      defense: "Through crossed bipartite observations and independent peer contrasts. When Pack p charges at Dock d, its measured total impedance is decomposed using median contrasts across all other docks visited by p, and all other packs charged at d. Stationary dock wear is mathematically decoupled from mobile pack degradation.",
-      formula: "\\Delta R_{dock}(d) = \\text{median}_{p \\in \\mathcal{P}(d)} (R_{meas}(p,d) - \\hat{R}_{pack}(p)), \\quad \\Delta R_{pack}(p) = \\text{median}_{d \\in \\mathcal{D}(p)} (R_{meas}(p,d) - \\hat{R}_{dock}(d))",
-      codeRef: "src/swaptrace/attribution/cross_asset.py:L18-L64",
+      defense: "Through crossed bipartite observations and independent peer contrasts. The pack–dock graph records every crossing; a dock anomaly is credited to CHARGER_DOCK only when multiple independent packs show the same dock-feature anomaly at that dock while the subject pack behaves normally on its other docks. Registry entries are pack-scoped via crossing sessions, so dock and pack evidence can never be conflated.",
+      formula: "\\text{Dock}(d): \\ N_{\\text{packs}}(d) \\ge 2 \\wedge \\text{pack normal elsewhere}; \\quad \\text{Pack}(p): \\ N_{\\text{docks}}(p) \\ge 2 \\wedge \\text{peers normal at } d",
+      codeRef: "src/swaptrace/attribution/__init__.py (CHARGER_DOCK/PACK hypothesis blocks)",
       dodGate: "Gate 10.2 · GATE 4"
     },
     {
       id: 3,
       category: 'ATTRIBUTION',
       question: "What if a pack only visits one dock?",
-      defense: "Insufficient graph crossing triggers explicit abstention. If a pack has not visited at least 3 distinct docks within the observation window, counterfactual isolation is mathematically indeterminate. Rather than hallucinating a guess, SwapTrace outputs an explicit ABSTAIN state with an 'Insufficient Cross-Observation' rationale.",
-      formula: "\\text{if } |\\mathcal{D}(p)| < \\tau_{min} \\implies \\text{Status} = \\text{ABSTAIN}, \\quad \\text{Confidence} = \\text{INSUFFICIENT\\_EVIDENCE}",
-      codeRef: "src/swaptrace/attribution/abstention.py:L12-L35",
+      defense: "Insufficient graph crossing triggers explicit abstention. A dock needs at least 2 independent packs, a pack needs at least 2 independent docks, and an environment claim needs 3+ packs at the station. Below those thresholds the counterfactual contrast is indeterminate, so SwapTrace outputs INSUFFICIENT_EVIDENCE rather than guessing — 47 of 138 attributions abstained in the seed-42 benchmark run.",
+      formula: "N_{\\text{packs}}(d) < 2 \\vee N_{\\text{docks}}(p) < 2 \\implies \\text{Status} = \\text{INSUFFICIENT\\_EVIDENCE}",
+      codeRef: "src/swaptrace/attribution/__init__.py:L45-L47 (crossing constants)",
       dodGate: "Gate 10.3 · Gate 4.7"
     },
     {
       id: 4,
       category: 'DATA_INTEGRITY',
       question: "How do you prevent data leakage?",
-      defense: "Temporal cutoffs, source-trajectory isolation, and point-in-time baselines. Baseline parameters (μ_baseline, σ_baseline) are computed exclusively on strictly historical sessions prior to the session timestamp. No post-event data or future session trajectories ever contaminate the baseline or feature normalization matrices.",
-      formula: "\\mathcal{B}_t = \\{ s \\in \\mathcal{S} \\mid t_{end}(s) \\le t_{start}(s_{eval}) - \\Delta t_{buffer} \\}",
-      codeRef: "src/swaptrace/data/temporal_split.py:L22-L58",
+      defense: "Chronological train/test split and point-in-time contextual baselines. Ground truth is saved for evaluation only and never passed to feature computation; baseline parameters (median, MAD per context bucket) are fitted exclusively on the chronological training portion of sessions before any test-session scoring.",
+      formula: "\\mathcal{B} = \\text{fit}(\\text{first 70\\% of sessions by time}); \\quad \\text{score only the held-out last 30\\%}",
+      codeRef: "src/swaptrace/baselines/__init__.py (fit_from_features_df) · cli.py Phase 5",
       dodGate: "Gate 10.4 · Gate 1 & 6"
     },
     {
       id: 5,
       category: 'DATA_INTEGRITY',
       question: "Is your dataset real?",
-      defense: "Explicit real/synthetic/injected provenance transparency. Telemetry traces are grounded in verified 14S NMC 50.4V electrochemical charging dynamics (1C CC-CV protocol, Arrhenius thermal equations). Benchmark fault injections are explicitly labeled in ground truth manifests to prevent any misattribution of simulated vs field events.",
-      formula: "V_{nominal} = 50.4\\text{ V (14S NMC)}, \\quad I_{cc} = 15.0\\text{ A}, \\quad \\text{Injected Faults: S01..S05}",
-      codeRef: "src/swaptrace/data/manifest.json",
+      defense: "Explicit synthetic provenance transparency. Telemetry traces are grounded in 14S NMC charging dynamics (CC-CV protocol, trapezoidal SOC integration, thermal mass model) and every injected fault is labeled in the ground-truth manifest. The evaluation report itself carries data_provenance = SYNTHETIC so simulated results can never be mistaken for field performance.",
+      formula: "\\text{ground\\_truth.json: } \\{\\text{is\\_faulty}, \\text{true\\_owners}, \\text{fault\\_types}\\}; \\quad \\text{data\\_provenance} = \\text{SYNTHETIC}",
+      codeRef: "benchmark/generator.py · data/raw/ground_truth.json",
       dodGate: "Gate 10.5 · Gate 1"
     },
     {
       id: 6,
       category: 'EVALUATION',
       question: "Why should synthetic accuracy be trusted?",
-      defense: "Synthetic accuracy is not claimed as field accuracy. It serves as a rigorous proof-of-correctness for the counterfactual localization algebra under controlled, known ground truth perturbations. It guarantees that when a known physical defect occurs, the attribution equations isolate the correct operational owner.",
-      formula: "\\text{Macro-F1} = 0.942, \\quad \\text{Precision}_{pack} = 0.961, \\quad \\text{Precision}_{dock} = 0.953",
-      codeRef: "tests/unit/test_physics.py:L110-L165",
+      defense: "Synthetic accuracy is not claimed as field accuracy. It serves as a rigorous proof-of-correctness for the attribution algebra under controlled, known ground-truth perturbations. All headline numbers below are read directly from artifacts/evaluation/evaluation_report.json of the seed-42 run, including the deliberately low recall — a conservative threshold trades recall for a low false-alert burden.",
+      formula: "\\text{Precision} = 0.954, \\quad \\text{Recall} = 0.226 \\text{ (intentional)}, \\quad \\text{Macro-F1} = 0.164, \\quad \\text{FP/1000} = 18.6",
+      codeRef: "artifacts/evaluation/evaluation_report.json · src/swaptrace/evaluation/__init__.py",
       dodGate: "Gate 10.6 · Gate 6"
     },
     {
@@ -79,8 +79,8 @@ export default function ReviewerDefenseView() {
       category: 'PHYSICS',
       question: "What if high ambient causes slow charging?",
       defense: "Condition on ambient temperature and examine shared site evidence. Charging duration and CC current derating are conditioned on ambient temperature bins. If all concurrent bays at a station exhibit identical derating that aligns with outdoor ambient rise, the attribution routes to ENVIRONMENT, preventing false pack or dock warranty claims.",
-      formula: "I_{derate}(T_{amb}) = I_{max} \\cdot \\min\\left(1.0, \\; 1.0 - k_{derate} \\cdot \\max(0, T_{amb} - 35^\\circ\\text{C})\\right)",
-      codeRef: "src/swaptrace/features/thermal.py:L34-L78",
+      formula: "T_{ambient} > 35^\\circ\\text{C} \\wedge N_{\\text{packs at station}} \\ge 3 \\implies \\text{ENVIRONMENT}",
+      codeRef: "src/swaptrace/features/__init__.py (env_sitewide_heat_derate)",
       dodGate: "Gate 10.7 · Gate 4.6"
     },
     {
@@ -88,8 +88,9 @@ export default function ReviewerDefenseView() {
       category: 'PHYSICS',
       question: "How do you distinguish environment from shared station hardware?",
       defense: "Require measured explanatory physical signals or abstain. If all bays at Station 02 derate but ambient temperature is nominal (24°C), SwapTrace tests the 3-phase AC utility feed voltage. If V_grid drops below 205V RMS, it attributes to AC_GRID_SAG. Without an explanatory physical signal, it flags shared station hardware or abstains.",
-      formula: "V_{grid, RMS} < 207\\text{ V} \\implies \\text{GRID\\_SAG}; \\quad \\Delta T_{amb} > 12^\\circ\\text{C} \\implies \\text{HEATWAVE}",
-      codeRef: "src/swaptrace/attribution/station_grid.py:L20-L55",
+      defense: "Require a measured explanatory physical signal or abstain. An environment attribution fires only when multiple independent assets at the station derate together AND a measured station-level signal (ambient temperature above threshold, or measured AC input voltage sag) is present in the feature context. Without that measured signal, shared-station hardware or an abstention is reported instead.",
+      formula: "V_{ac, measured} \\ll V_{nominal} \\implies \\text{env\\_grid\\_sag\\_power\\_loss}; \\quad T_{amb} > 35^\\circ\\text{C} \\implies \\text{env\\_sitewide\\_heat\\_derate}",
+      codeRef: "src/swaptrace/features/__init__.py (env_grid_sag_power_loss) · physics/__init__.py (compute_grid_sag)",
       dodGate: "Gate 10.8 · Gate 4.9"
     },
     {
@@ -97,8 +98,8 @@ export default function ReviewerDefenseView() {
       category: 'PHYSICS',
       question: "Can cell voltage spread prove chemistry failure?",
       defense: "No; cell voltage spread is strictly an investigation signal. A cell spread exceeding 30mV (such as Cell 09 at -44.8mV) proves localized impedance disparity or active material divergence during constant current charging, but does not prove irreversible chemistry retirement without full cell capacity cycle logging.",
-      formula: "\\Delta V_{cell\\_spread} = \\max_{i}(V_{cell,i}) - \\min_{i}(V_{cell,i}) > 30\\text{ mV} \\implies \\text{FLAG\\_BALANCING}",
-      codeRef: "src/swaptrace/features/cell_dispersion.py:L15-L42",
+      formula: "\\Delta V_{spread} = \\max_i(V_{cell,i}) - \\min_i(V_{cell,i}) > \\tau \\implies \\text{cell\\_voltage\\_dispersion\\_excess}",
+      codeRef: "src/swaptrace/physics/__init__.py (compute_cell_voltage_dispersion)",
       dodGate: "Gate 10.9 · Gate 4.3"
     },
     {
@@ -106,17 +107,17 @@ export default function ReviewerDefenseView() {
       category: 'PHYSICS',
       question: "Can you estimate true resistance from arbitrary charge samples?",
       defense: "No; valid excitation and measurement geometry are mandatory. Equivalent Series Resistance (ESR) is computed strictly during sharp current step transitions (0A to 15A step at t = 30s), where ΔV / ΔI reflects pure ohmic and initial charge-transfer impedance rather than complex diffusion polarization.",
-      formula: "R_{esr} = \\frac{V(t_{step}^+) - V(t_{step}^-)}{I(t_{step}^+) - I(t_{step}^-)}, \\quad \\Delta t_{window} \\le 200\\text{ ms}",
-      codeRef: "src/swaptrace/features/impedance.py:L28-L62",
+      formula: "R_{eff} = \\frac{\\Delta V}{\\Delta I} \\text{ during CC excitation}, \\quad \\text{pack\\_electrical\\_response\\_anomaly on residual}",
+      codeRef: "src/swaptrace/physics/__init__.py (compute_pack_electrical_response)",
       dodGate: "Gate 10.10 · Gate 3.4"
     },
     {
       id: 11,
       category: 'OPERATIONS',
       question: "Why not use a Transformer?",
-      defense: "No demonstrated incremental operational value for the scoped attribution problem. Swapping telemetry requires deterministic, verifiable physical equations that field technicians and warranty managers can inspect without black-box drift. A 40-feature physics pipeline executes in <2ms on edge hardware with 100% auditable formulas.",
-      formula: "\\text{Lat}_{physics} = 1.4\\text{ ms vs } \\text{Lat}_{transformer} = 180\\text{ ms}; \\quad \\text{Interpretability} = 100\\%",
-      codeRef: "dod.md:L238 · Gate 10.11",
+      defense: "No demonstrated incremental operational value for the scoped attribution problem. Swapping telemetry requires deterministic, verifiable physical equations that field technicians and warranty managers can inspect without black-box drift. The full physics-based pipeline (4,656 features over 1,937 sessions) runs in seconds on a laptop, deterministic under seed 42, with 100% auditable formulas.",
+      formula: "\\text{Deterministic} = \\text{seed } 42 \\text{ reproducible}; \\quad \\text{Formulas auditable} = 100\\%",
+      codeRef: "benchmark/generator.py · src/swaptrace/features/__init__.py",
       dodGate: "Gate 10.11 · Architecture Memo"
     },
     {
@@ -124,35 +125,35 @@ export default function ReviewerDefenseView() {
       category: 'DATA_INTEGRITY',
       question: "What happens when sensors are missing?",
       defense: "Capability gating and explicit non-computability. If individual cell telemetry is absent in legacy hardware, cell dispersion features return NOT_COMPUTABLE rather than a misleading zero or mean interpolation. The attribution engine gracefully falls back to pack-level aggregate impedance without corrupting diagnostics.",
-      formula: "\\text{if } \\text{Sensors}_{available} \\cap \\text{Sensors}_{required} \\ne \\text{Sensors}_{required} \\implies \\text{NOT\\_COMPUTABLE}",
-      codeRef: "src/swaptrace/features/registry.py:L82-L109",
+      formula: "\\text{capability check fails} \\implies \\text{validity\\_status} = \\text{NOT\\_COMPUTABLE}, \\text{ never } 0",
+      codeRef: "src/swaptrace/quality/__init__.py (check_sensor_capability) · FEATURE_REGISTRY confounders",
       dodGate: "Gate 10.12 · Gate 2 & 3"
     },
     {
       id: 13,
       category: 'OPERATIONS',
       question: "What prevents alert fatigue?",
-      defense: "Persistence criteria, episode grouping, and alert budget gating. Individual 1-second telemetry anomalies do not create raw tickets. Consecutive anomalous samples must persist for >30 seconds to initiate an Incident Episode. Repeated detections on the same asset consolidate within a 6-hour rolling deduplication window.",
-      formula: "\\text{Alert\\_Rate} = 18.6 \\text{ episodes / 1,000 healthy sessions} \\le 20.0 \\text{ (Budget Target)}",
-      codeRef: "src/swaptrace/alerts/deduplication.py:L14-L65",
+      defense: "Persistence criteria, episode grouping, and conservative severity gating. Raw per-session anomalies do not create tickets: an entity+feature must repeat (persistence >= 2) before an alert episode opens, episodes deduplicate on a stable key (owner:entity:feature), and the conservative attribution threshold keeps the measured burden at 18.6 false episodes per 1,000 healthy sessions.",
+      formula: "\\text{Alert\\_Rate} = 18.6 \\text{ episodes / 1,000 healthy sessions}; \\quad \\text{episode\\_key} = \\text{owner:entity:feature}",
+      codeRef: "src/swaptrace/alerts/__init__.py (AlertPolicyEngine, PersistenceTracker)",
       dodGate: "Gate 10.13 · Gate 5"
     },
     {
       id: 14,
       category: 'EVALUATION',
       question: "How are confidence values calibrated?",
-      defense: "Qualitative evidence support tiers rather than uncalibrated softmax decimals. SwapTrace assigns discrete support classes (HIGH, MEDIUM, LOW, AMBIGUOUS, ABSTAIN) based on empirical sample counts and z-score distances from healthy baseline distributions, avoiding misleading 99.9% probability claims.",
-      formula: "\\text{Support} = \\begin{cases} \\text{HIGH} & |z| \\ge 3.0 \\wedge N_{cross} \\ge 5 \\\\ \\text{MEDIUM} & |z| \\ge 2.0 \\wedge N_{cross} \\ge 3 \\\\ \\text{ABSTAIN} & \\text{otherwise} \\end{cases}",
-      codeRef: "src/swaptrace/attribution/confidence.py:L19-L50",
+      defense: "Qualitative evidence support tiers rather than uncalibrated softmax decimals. Confidence is HIGH when the winning hypothesis has 3+ independent crossings, MEDIUM at the 2-crossing minimum, and the engine caps confidence when counterevidence exists — avoiding misleading 99.9% probability claims.",
+      formula: "N_{cross} \\ge 3 \\implies \\text{HIGH}; \\quad N_{cross} = 2 \\implies \\text{MEDIUM}; \\quad \\text{counterevidence present} \\implies \\text{confidence capped}",
+      codeRef: "src/swaptrace/attribution/__init__.py (confidence tiers, evidence capping)",
       dodGate: "Gate 10.14 · Gate 4.11"
     },
     {
       id: 15,
       category: 'ATTRIBUTION',
       question: "What happens with simultaneous faults?",
-      defense: "Competing hypotheses and explicit dual-incident ambiguity. When a degraded pack (R_pack high) is inserted into a corroded dock (R_dock high), the system identifies that both residual components exceed thresholds and flags a DUAL_FAULT_AMBIGUOUS incident, presenting both evidence traces to the technician.",
-      formula: "z_{pack} \\ge 2.5 \\;\\wedge\\; z_{dock} \\ge 2.5 \\implies \\text{IncidentClass} = \\text{DUAL\\_FAULT\\_AMBIGUOUS}",
-      codeRef: "src/swaptrace/attribution/engine.py:L112-L148",
+      defense: "Competing hypotheses and explicit conflicting-evidence status. When both the pack and the dock accumulate support, the engine does not silently pick a winner: it reports CONFLICTING_EVIDENCE and surfaces both evidence traces to the technician instead of a single confident claim.",
+      formula: "\\text{support(dock)} \\wedge \\text{support(pack)} \\implies \\text{Status} = \\text{CONFLICTING\\_EVIDENCE}",
+      codeRef: "src/swaptrace/attribution/__init__.py (CONFLICTING_EVIDENCE handling)",
       dodGate: "Gate 10.15 · Gate 4.14"
     },
     {
@@ -168,9 +169,9 @@ export default function ReviewerDefenseView() {
       id: 17,
       category: 'OPERATIONS',
       question: "How would the system improve after launch?",
-      defense: "Technician ground truth feedback loops and monitored baseline updates. When a technician resolves an alert by selecting 'Replaced Dock Contact Pins' or 'Cleaned Busbar', this outcome is logged into the historical attribution prior, continuously refining Bayesian priors across stations.",
-      formula: "P(\\text{Dock} \\mid \\vec{z}) \\leftarrow \\frac{P(\\vec{z} \\mid \\text{Dock}) \\cdot P(\\text{Dock} \\mid \\text{Technician History})}{\\sum_k P(\\vec{z} \\mid k) P(k)}",
-      codeRef: "src/swaptrace/feedback/outcome_logger.py:L10-L40",
+      defense: "Technician ground-truth feedback loops built into the alert lifecycle. When a technician resolves an episode, the resolution outcome (resolved_by, notes, category) is captured as a typed ResolutionFeedback on the alert record — the data structure needed to route confirmed outcomes back into future baseline updates and attribution priors.",
+      formula: "\\text{resolve}(\\text{episode\\_key}, \\text{ResolutionFeedback}) \\implies \\text{audit trail in AlertTransition history}",
+      codeRef: "src/swaptrace/contracts/__init__.py (ResolutionFeedback) · alerts.resolve()",
       dodGate: "Gate 10.17 · Gate 8.10"
     },
     {

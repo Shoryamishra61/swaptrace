@@ -89,9 +89,9 @@ export default function AttributionEngineView({ data }) {
             <span>Detection Precision</span>
             <ShieldCheck size={16} color="var(--system-green)" />
           </div>
-          <div className="kpi-value" style={{ color: 'var(--system-green)' }}>95.3%</div>
+          <div className="kpi-value" style={{ color: 'var(--system-green)' }}>95.4%</div>
           <div className="kpi-trend trend-positive">
-            <span>41 / 43 true alerts validated</span>
+            <span>83 / 87 alerted sessions validated</span>
           </div>
         </div>
 

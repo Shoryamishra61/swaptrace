@@ -106,9 +106,9 @@ export default function FleetOverviewView({ data, onSelectAlert, onNavigate }) {
             <span>Detection Precision</span>
             <Zap size={16} color="var(--system-blue)" />
           </div>
-          <div className="kpi-value" style={{ color: 'var(--system-blue)' }}>95.3%</div>
+          <div className="kpi-value" style={{ color: 'var(--system-blue)' }}>95.4%</div>
           <div className="kpi-trend trend-positive">
-            <span>41 / 43 true positives validated</span>
+            <span>83 / 87 alerted sessions validated</span>
           </div>
         </div>
       </div>

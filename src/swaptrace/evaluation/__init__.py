@@ -52,8 +52,6 @@ def compute_metrics(
     """
     report = EvaluationReport()
 
-    # Build lookups
-    gt_by_session = {g["session_id"]: g for g in ground_truth}
     attr_by_session = {a.session_id: a for a in attribution_results if a.session_id}
 
     report.n_sessions_evaluated = len(ground_truth)
@@ -223,49 +221,114 @@ def evaluate_scenarios(
     return results
 
 
+def _detection_metrics_from_sessions(
+    ground_truth: list[dict[str, Any]],
+    alerted_sessions: set[str],
+) -> dict[str, float]:
+    """Detection precision/recall/F1/false-alert-rate for a set of alerted session ids."""
+    tp = fp = fn = 0
+    n_healthy = 0
+    for gt in ground_truth:
+        is_faulty = gt["is_faulty"]
+        was_alerted = gt["session_id"] in alerted_sessions
+        if not is_faulty:
+            n_healthy += 1
+        if was_alerted and is_faulty:
+            tp += 1
+        elif was_alerted and not is_faulty:
+            fp += 1
+        elif not was_alerted and is_faulty:
+            fn += 1
+    precision = tp / max(tp + fp, 1)
+    recall = tp / max(tp + fn, 1)
+    f1 = 2 * precision * recall / max(precision + recall, 1e-6)
+    return {
+        "detection_f1": f1,
+        "false_alerts_per_1000": (fp / n_healthy) * 1000 if n_healthy else 0.0,
+    }
+
+
 def run_ablations(
-    sessions_normal: list[Any],
-    sessions_faulty: list[Any],
     ground_truth: list[dict[str, Any]],
     feature_records: list[Any],
     attribution_results: list[Any],
     alerts: list[Any],
 ) -> dict[str, dict[str, float]]:
     """
-    Compare ablation variants:
-    A0: Static global threshold
-    A1: Contextual residual
-    A2: Contextual + persistence
-    A3: Full attribution pipeline
+    Actually run each ablation variant over the feature records and measure
+    detection quality against ground truth. Variants:
+
+    A0_static_global_threshold:
+        Naive ops rule — one fixed global cut on the anomaly score
+        (z > 5.0), no contextual baselines, no persistence.
+    A1_contextual_residual:
+        Contextual baseline residuals (z > 3.0), no persistence.
+    A2_contextual_persistence:
+        A1 + an entity/feature must repeat (persistence >= 2) before alerting.
+    A3_full_pipeline:
+        A2 + cross-asset attribution, abstention, and episode dedup
+        (the shipped pipeline — metrics from its real outputs).
     """
-    # A3 is the full pipeline
+    from swaptrace.contracts import FeatureValidityStatus
+
+    static_threshold = 5.0
+    contextual_threshold = 3.0
+
+    valid_records = [
+        fr for fr in feature_records if fr.validity_status == FeatureValidityStatus.VALID
+    ]
+
+    # A0: static global threshold — every feature scored against one fixed cut
+    a0_sessions = {
+        fr.session_id
+        for fr in valid_records
+        if fr.normalized_score is not None and fr.normalized_score > static_threshold
+    }
+
+    # A1: contextual residual — lower cut, still no persistence requirement
+    a1_sessions = {
+        fr.session_id
+        for fr in valid_records
+        if fr.normalized_score is not None and fr.normalized_score > contextual_threshold
+    }
+
+    # A2: contextual + persistence — chronological replay, entity+feature must
+    # have been anomalous at least twice before the session is alerted
+    a2_sessions: set[str] = set()
+    occurrence: dict[tuple[str, str], int] = {}
+    for fr in sorted(valid_records, key=lambda r: r.computed_at):
+        if fr.normalized_score is None or fr.normalized_score <= contextual_threshold:
+            continue
+        key = (fr.entity_id, fr.feature_id)
+        occurrence[key] = occurrence.get(key, 0) + 1
+        if occurrence[key] >= 2:
+            a2_sessions.add(fr.session_id)
+
+    # A3: full pipeline — alerted sessions from the real alert episodes
+    a3_sessions: set[str] = set()
+    for ep in alerts:
+        a3_sessions.update(ep.supporting_session_ids)
+
     full_report = compute_metrics(ground_truth, attribution_results, alerts)
 
     ablations: dict[str, dict[str, float]] = {
-        "A0_static_threshold": {
-            "detection_f1": 0.0,  # placeholder — not implemented as separate model
+        "A0_static_global_threshold": {
+            **_detection_metrics_from_sessions(ground_truth, a0_sessions),
             "attribution_macro_f1": 0.0,
-            "false_alerts_per_1000": 0.0,
-            "note": "Not separately run: static threshold comparison requires baseline experiment",
         },
         "A1_contextual_residual": {
-            "detection_f1": full_report.detection_f1,
-            "attribution_macro_f1": 0.0,  # no attribution without crossing
-            "false_alerts_per_1000": full_report.false_alerts_per_1000_healthy,
-            "note": "Detection only; attribution disabled",
+            **_detection_metrics_from_sessions(ground_truth, a1_sessions),
+            "attribution_macro_f1": 0.0,
         },
         "A2_contextual_persistence": {
-            "detection_f1": full_report.detection_f1,
+            **_detection_metrics_from_sessions(ground_truth, a2_sessions),
             "attribution_macro_f1": 0.0,
-            "false_alerts_per_1000": full_report.false_alerts_per_1000_healthy,
-            "note": "Detection + persistence; attribution disabled",
         },
         "A3_full_pipeline": {
             "detection_f1": full_report.detection_f1,
-            "attribution_macro_f1": full_report.attribution_macro_f1,
             "false_alerts_per_1000": full_report.false_alerts_per_1000_healthy,
+            "attribution_macro_f1": full_report.attribution_macro_f1,
             "abstention_coverage": full_report.abstention_coverage,
-            "note": "Full attribution pipeline",
         },
     }
     return ablations

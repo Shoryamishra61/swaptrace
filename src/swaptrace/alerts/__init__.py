@@ -11,9 +11,9 @@ Implements:
 
 from __future__ import annotations
 
-from datetime import UTC, datetime, timezone
-from typing import Any
+from datetime import UTC, datetime
 
+from swaptrace.attribution import FEATURE_OWNER_MAP
 from swaptrace.contracts import (
     AlertEpisode,
     AlertSeverity,
@@ -29,6 +29,7 @@ from swaptrace.contracts import (
     SourceType,
 )
 from swaptrace.detection import PersistenceTracker
+from swaptrace.features import FEATURE_REGISTRY
 from swaptrace.observability import get_logger
 
 logger = get_logger(__name__)
@@ -150,7 +151,8 @@ class AlertPolicyEngine:
         owner = result.selected_owner
         entity_id = self._get_entity_id(result, feature_records)
 
-        # Find the primary anomalous feature
+        # Find the primary anomalous feature — must belong to the attributed owner,
+        # otherwise a cell feature could be filed under a dock alert
         owner_features = [
             fr
             for fr in feature_records
@@ -158,6 +160,7 @@ class AlertPolicyEngine:
             and fr.validity_status == FeatureValidityStatus.VALID
             and fr.normalized_score
             and fr.normalized_score > 3.0
+            and FEATURE_OWNER_MAP.get(fr.feature_id) == owner
         ]
         if not owner_features:
             return None
@@ -230,6 +233,11 @@ class AlertPolicyEngine:
             return existing
 
         # New episode — must validate actionability via Pydantic
+        # Per-feature action from the registry leads; owner-level playbook actions follow
+        feature_action = FEATURE_REGISTRY.get(feature_id, {}).get("recommended_action")
+        recommended_actions = [
+            a for a in [feature_action, *OWNER_ACTIONS[owner][:2]] if a is not None
+        ]
         try:
             episode = AlertEpisode(
                 episode_key=episode_key,
@@ -245,7 +253,7 @@ class AlertPolicyEngine:
                 evidence=evidence_items,
                 counterevidence=counterevidence_items,
                 independent_support_counts=result.crossing_support,
-                recommended_actions=OWNER_ACTIONS[owner][:2],  # top 2 actions
+                recommended_actions=recommended_actions,
                 explanation=result.explanation,
                 first_seen_ts=session_ts,
                 last_seen_ts=session_ts,

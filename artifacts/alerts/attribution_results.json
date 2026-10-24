@@ -36,7 +36,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -79,7 +81,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -151,7 +155,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -194,7 +200,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -325,7 +333,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -368,7 +378,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -471,7 +483,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -542,7 +556,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -585,7 +601,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -780,7 +798,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -855,7 +875,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -926,7 +948,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -1058,7 +1082,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -1145,7 +1171,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -1275,7 +1303,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -1350,7 +1380,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -1538,7 +1570,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -1768,7 +1802,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -1840,7 +1876,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -1924,7 +1962,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -2329,7 +2369,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -2388,7 +2430,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -2593,7 +2637,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -2684,7 +2730,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -2930,7 +2978,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -3001,7 +3051,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -3133,7 +3185,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -3317,7 +3371,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -3553,7 +3609,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -3596,7 +3654,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -3640,7 +3700,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -3684,7 +3746,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",
@@ -3755,7 +3819,9 @@
     },
     "owner_counterevidence": {},
     "crossing_support": {
-      "dock_independent_packs": 20
+      "dock_independent_packs": 20,
+      "dock_peer_packs_available": 19,
+      "dock_anomalous_peer_packs": 19
     },
     "selected_owner": "CHARGER_DOCK",
     "attribution_status": "ATTRIBUTED",

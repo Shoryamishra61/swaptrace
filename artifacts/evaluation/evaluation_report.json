@@ -1,8 +1,8 @@
 {
   "detection": {
-    "precision": 0.9534883720930233,
-    "recall": 0.22343324250681199,
-    "f1": 0.36203090507726265,
+    "precision": 0.9540229885057471,
+    "recall": 0.22615803814713897,
+    "f1": 0.3656387665198238,
     "false_alerts_per_1000_healthy": 18.6046511627907
   },
   "attribution": {
@@ -13,7 +13,7 @@
   "scenarios": {
     "S01_bad_dock": {
       "pass": true,
-      "evidence": "2 CHARGER_DOCK alerts emitted",
+      "evidence": "1 CHARGER_DOCK alerts emitted",
       "expected": "owner=CHARGER_DOCK, multiple independent packs affected"
     },
     "S02_bad_pack": {
@@ -23,7 +23,7 @@
     },
     "S03_cell_chemistry": {
       "pass": true,
-      "evidence": "3 CELL_CHEMISTRY alerts emitted",
+      "evidence": "2 CELL_CHEMISTRY alerts emitted",
       "expected": "owner=CELL_CHEMISTRY, cell-level investigation"
     },
     "S04_environment": {
@@ -37,13 +37,36 @@
       "expected": "status=INSUFFICIENT_EVIDENCE, no maintenance alert"
     }
   },
+  "ablations": {
+    "A0_static_global_threshold": {
+      "detection_f1": 0.7900968783638321,
+      "false_alerts_per_1000": 906.9767441860464,
+      "attribution_macro_f1": 0.0
+    },
+    "A1_contextual_residual": {
+      "detection_f1": 0.7900968783638321,
+      "false_alerts_per_1000": 906.9767441860464,
+      "attribution_macro_f1": 0.0
+    },
+    "A2_contextual_persistence": {
+      "detection_f1": 0.7649769585253455,
+      "false_alerts_per_1000": 786.046511627907,
+      "attribution_macro_f1": 0.0
+    },
+    "A3_full_pipeline": {
+      "detection_f1": 0.3656387665198238,
+      "false_alerts_per_1000": 18.6046511627907,
+      "attribution_macro_f1": 0.16374570446735395,
+      "abstention_coverage": 0.08075601374570447
+    }
+  },
   "metadata": {
     "seed": 42,
     "n_test_sessions": 582,
     "n_healthy": 215,
     "n_faulty": 367,
-    "n_alerts": 7,
-    "evaluation_ts": "2026-10-24T14:14:50.945980+00:00",
+    "n_alerts": 5,
+    "evaluation_ts": "2026-10-24T16:03:12.550935+00:00",
     "data_provenance": "SYNTHETIC -- semi-synthetic swapping network benchmark",
     "note": "Results from controlled synthetic benchmark. Not representative of real-world field performance."
   }
