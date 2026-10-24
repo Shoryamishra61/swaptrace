@@ -1,19 +1,19 @@
-# Ignore Python backend, lockfiles, and tests so Vercel builds only the Vite frontend
-uv.lock
-pyproject.toml
-src/swaptrace/
-tests/
-artifacts/
-app/
-benchmark/
-scripts/
-data/
-configs/
-docs/
-.github/
-.pytest_cache/
-.venv/
-__pycache__/
-api/
-app.py
-index.html.bak
+# Deploy only the Vite frontend; anchor every pattern to the repo root
+# (unanchored "data/" would also strip src/data/ and break the console build)
+/uv.lock
+/pyproject.toml
+/src/swaptrace/
+/tests/
+/artifacts/
+/app/
+/benchmark/
+/scripts/
+/data/
+/configs/
+/docs/
+/.github/
+/.pytest_cache/
+/.venv/
+/__pycache__/
+/api/
+/app.py
