@@ -97,7 +97,7 @@ export default function FleetOverviewView({ data, onSelectAlert, onNavigate }) {
             {alerts.filter(a => a.status !== 'RESOLVED').length || 6}
           </div>
           <div className="kpi-trend trend-warning">
-            <span>4 High / Critical priority</span>
+            <span>All MEDIUM — conservative alert policy</span>
           </div>
         </div>
 
@@ -205,10 +205,10 @@ export default function FleetOverviewView({ data, onSelectAlert, onNavigate }) {
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '4px' }}>
                 <span style={{ fontWeight: 600, color: 'var(--text-secondary)' }}>Charger Dock (Power Stage & CC Control)</span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>38% (2 Alerts)</span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>20% (1 Alert)</span>
               </div>
               <div style={{ height: '8px', background: '#f1f5f9', borderRadius: '4px', overflow: 'hidden' }}>
-                <div style={{ width: '38%', height: '100%', background: 'var(--system-blue)' }} />
+                <div style={{ width: '20%', height: '100%', background: 'var(--system-blue)' }} />
               </div>
             </div>
 
@@ -216,10 +216,10 @@ export default function FleetOverviewView({ data, onSelectAlert, onNavigate }) {
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '4px' }}>
                 <span style={{ fontWeight: 600, color: 'var(--text-secondary)' }}>Battery Pack (Contact Resistance & Thermal)</span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>31% (2 Alerts)</span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>20% (1 Alert)</span>
               </div>
               <div style={{ height: '8px', background: '#f1f5f9', borderRadius: '4px', overflow: 'hidden' }}>
-                <div style={{ width: '31%', height: '100%', background: 'var(--system-purple)' }} />
+                <div style={{ width: '20%', height: '100%', background: 'var(--system-purple)' }} />
               </div>
             </div>
 
@@ -227,10 +227,10 @@ export default function FleetOverviewView({ data, onSelectAlert, onNavigate }) {
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '4px' }}>
                 <span style={{ fontWeight: 600, color: 'var(--text-secondary)' }}>Cell Chemistry (14S Imbalance & Degradation)</span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>19% (2 Alerts)</span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>40% (2 Alerts)</span>
               </div>
               <div style={{ height: '8px', background: '#f1f5f9', borderRadius: '4px', overflow: 'hidden' }}>
-                <div style={{ width: '19%', height: '100%', background: 'var(--system-amber)' }} />
+                <div style={{ width: '40%', height: '100%', background: 'var(--system-amber)' }} />
               </div>
             </div>
 
@@ -238,10 +238,10 @@ export default function FleetOverviewView({ data, onSelectAlert, onNavigate }) {
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '4px' }}>
                 <span style={{ fontWeight: 600, color: 'var(--text-secondary)' }}>Environment & Grid (Heatwave & AC Sag)</span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>12% (1 Alert)</span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>20% (1 Alert)</span>
               </div>
               <div style={{ height: '8px', background: '#f1f5f9', borderRadius: '4px', overflow: 'hidden' }}>
-                <div style={{ width: '12%', height: '100%', background: 'var(--system-green)' }} />
+                <div style={{ width: '20%', height: '100%', background: 'var(--system-green)' }} />
               </div>
             </div>
 

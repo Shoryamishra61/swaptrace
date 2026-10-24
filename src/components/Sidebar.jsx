@@ -70,7 +70,7 @@ export default function Sidebar({ currentView, onViewChange, alertCount }) {
           <div style={{ padding: '0 8px', fontSize: '12px', color: 'var(--text-muted)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
               <span>Precision Target:</span>
-              <span style={{ fontWeight: 600, color: 'var(--system-green)' }}>95.3%</span>
+              <span style={{ fontWeight: 600, color: 'var(--system-green)' }}>95.4%</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
               <span>False Alert Burden:</span>
