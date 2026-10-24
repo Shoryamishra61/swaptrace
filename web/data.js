@@ -1,7 +1,7 @@
 window.SWAPTRACE_DATA = {
   "alerts": [
     {
-      "alert_id": "c88f081a-5d38-45ed-8a27-4d413387bc52",
+      "alert_id": "b01adece-fe6e-4075-832b-ab768eda9d12",
       "episode_key": "CHARGER_DOCK:STA-04-DOK-01:cell_voltage_dispersion_excess",
       "owner_category": "CHARGER_DOCK",
       "owner_team": "charging_infrastructure",
@@ -35,6 +35,12 @@ window.SWAPTRACE_DATA = {
           "count": 3
         },
         {
+          "description": "19 other pack(s) showed the same dock-feature anomaly at STA-02-DOK-04 \u2014 anomaly follows the dock",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 19
+        },
+        {
           "description": "Feature cell_voltage_dispersion_excess anomaly: observed=0.014V, expected=0.000V, z-score=297.54",
           "entity_id": "STA-04-DOK-01",
           "session_ids": [
@@ -57,7 +63,7 @@ window.SWAPTRACE_DATA = {
       "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-006 is normal elsewhere. | Concurrent anomalies across multiple components detected; confidence capped at MEDIUM.",
       "first_seen_ts": "2026-09-10T19:56:35.622681Z",
       "last_seen_ts": "2026-09-14T17:10:51.833806Z",
-      "opened_at": "2026-10-21T08:29:03.396918Z",
+      "opened_at": "2026-10-24T14:13:33.991291Z",
       "occurrence_count": 4,
       "baseline_version": "1.0",
       "pipeline_version": "1.0.0",
@@ -72,7 +78,7 @@ window.SWAPTRACE_DATA = {
       "resolution": null
     },
     {
-      "alert_id": "ba46802f-2292-43e5-897d-fc6bb998ed84",
+      "alert_id": "d58980bd-ef57-4565-8e1f-8288f5aef8f2",
       "episode_key": "CHARGER_DOCK:STA-04-DOK-01:dock_contact_resistance_excess",
       "owner_category": "CHARGER_DOCK",
       "owner_team": "charging_infrastructure",
@@ -104,6 +110,12 @@ window.SWAPTRACE_DATA = {
           "entity_id": "STA-02",
           "session_ids": [],
           "count": 3
+        },
+        {
+          "description": "19 other pack(s) showed the same dock-feature anomaly at STA-02-DOK-04 \u2014 anomaly follows the dock",
+          "entity_id": "STA-02-DOK-04",
+          "session_ids": [],
+          "count": 19
         },
         {
           "description": "Feature dock_contact_resistance_excess anomaly: observed=80.000m\u03a9, expected=0.000m\u03a9, z-score=4.96",
@@ -153,7 +165,7 @@ window.SWAPTRACE_DATA = {
       "explanation": "Evidence supports CHARGER_DOCK: 20 independent packs affected at dock STA-02-DOK-04; pack STA-02-PCK-020 is normal elsewhere.",
       "first_seen_ts": "2026-09-11T00:44:57.528276Z",
       "last_seen_ts": "2026-09-14T17:32:07.174550Z",
-      "opened_at": "2026-10-21T08:29:03.402504Z",
+      "opened_at": "2026-10-24T14:13:33.993004Z",
       "occurrence_count": 29,
       "baseline_version": "1.0",
       "pipeline_version": "1.0.0",
@@ -193,7 +205,7 @@ window.SWAPTRACE_DATA = {
       "resolution": null
     },
     {
-      "alert_id": "2bf78c87-0cef-4314-a08e-6bc5e5c17f7b",
+      "alert_id": "1a68249f-872b-43f2-ad4a-7dae655ed52e",
       "episode_key": "CELL_CHEMISTRY:STA-04-PCK-017:pack_self_heating_excess",
       "owner_category": "CELL_CHEMISTRY",
       "owner_team": "cell_engineering",
@@ -268,7 +280,7 @@ window.SWAPTRACE_DATA = {
       "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-010. Note: specific degradation mechanism is unverified \u2014 route to battery engineering.",
       "first_seen_ts": "2026-09-11T01:05:24.349323Z",
       "last_seen_ts": "2026-09-14T19:22:07.780860Z",
-      "opened_at": "2026-10-21T08:29:03.407615Z",
+      "opened_at": "2026-10-24T14:13:33.994456Z",
       "occurrence_count": 33,
       "baseline_version": "1.0",
       "pipeline_version": "1.0.0",
@@ -312,7 +324,7 @@ window.SWAPTRACE_DATA = {
       "resolution": null
     },
     {
-      "alert_id": "695db1b2-39b2-4847-aaab-d7923188f75e",
+      "alert_id": "5aaddffd-c566-41d8-a9ba-7157c779dbdf",
       "episode_key": "CELL_CHEMISTRY:STA-04-PCK-017:chemistry_charge_curve_drift",
       "owner_category": "CELL_CHEMISTRY",
       "owner_team": "cell_engineering",
@@ -361,7 +373,7 @@ window.SWAPTRACE_DATA = {
       "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-006. Note: specific degradation mechanism is unverified \u2014 route to battery engineering.",
       "first_seen_ts": "2026-09-11T12:45:49.727453Z",
       "last_seen_ts": "2026-09-14T11:44:11.509235Z",
-      "opened_at": "2026-10-21T08:29:03.443341Z",
+      "opened_at": "2026-10-24T14:13:33.998235Z",
       "occurrence_count": 7,
       "baseline_version": "1.0",
       "pipeline_version": "1.0.0",
@@ -379,7 +391,7 @@ window.SWAPTRACE_DATA = {
       "resolution": null
     },
     {
-      "alert_id": "22708784-e8a0-4a5d-be5b-f1f3a936c809",
+      "alert_id": "bde46ecc-6db9-4bf2-9cff-4298cd1d83ba",
       "episode_key": "PACK:STA-04-PCK-017:pack_electrical_response_anomaly",
       "owner_category": "PACK",
       "owner_team": "battery_service",
@@ -427,7 +439,7 @@ window.SWAPTRACE_DATA = {
       "explanation": "Evidence supports PACK: anomaly follows pack STA-03-PCK-006 across 4 independent docks; those docks are normal with other packs.",
       "first_seen_ts": "2026-09-12T13:41:21.417603Z",
       "last_seen_ts": "2026-09-12T13:41:21.417603Z",
-      "opened_at": "2026-10-21T08:29:03.503136Z",
+      "opened_at": "2026-10-24T14:13:34.004362Z",
       "occurrence_count": 2,
       "baseline_version": "1.0",
       "pipeline_version": "1.0.0",
@@ -440,7 +452,7 @@ window.SWAPTRACE_DATA = {
       "resolution": null
     },
     {
-      "alert_id": "336cfb2a-94b1-42de-8fc3-0da24acbe3f1",
+      "alert_id": "bf8539b3-d829-4869-aeba-2083fe4a5d05",
       "episode_key": "ENVIRONMENT:STA-04:env_sitewide_heat_derate",
       "owner_category": "ENVIRONMENT",
       "owner_team": "site_facilities",
@@ -495,7 +507,7 @@ window.SWAPTRACE_DATA = {
       "explanation": "Evidence supports ENVIRONMENT: measured site condition at station STA-03 with 20 affected packs and 4 docks. Note: shared station hardware faults are a competing hypothesis.",
       "first_seen_ts": "2026-09-12T14:54:17.205455Z",
       "last_seen_ts": "2026-09-14T13:59:10.423845Z",
-      "opened_at": "2026-10-21T08:29:03.507859Z",
+      "opened_at": "2026-10-24T14:13:34.005049Z",
       "occurrence_count": 8,
       "baseline_version": "1.0",
       "pipeline_version": "1.0.0",
@@ -514,7 +526,7 @@ window.SWAPTRACE_DATA = {
       "resolution": null
     },
     {
-      "alert_id": "509fc067-8329-41d8-b77e-8e351d7113cd",
+      "alert_id": "2f448712-e7b6-4ec8-aeb9-3bd0b3786fb2",
       "episode_key": "CELL_CHEMISTRY:STA-04-PCK-017:cell_voltage_dispersion_excess",
       "owner_category": "CELL_CHEMISTRY",
       "owner_team": "cell_engineering",
@@ -561,7 +573,7 @@ window.SWAPTRACE_DATA = {
       "explanation": "Cell-level voltage divergence or curve drift detected. Evidence suggests cell/chemistry investigation for pack STA-01-PCK-003. Note: specific degradation mechanism is unverified \u2014 route to battery engineering.",
       "first_seen_ts": "2026-09-13T02:54:23.523238Z",
       "last_seen_ts": "2026-09-14T11:18:58.502379Z",
-      "opened_at": "2026-10-21T08:29:03.536099Z",
+      "opened_at": "2026-10-24T14:13:34.007942Z",
       "occurrence_count": 7,
       "baseline_version": "1.0",
       "pipeline_version": "1.0.0",
@@ -624,7 +636,7 @@ window.SWAPTRACE_DATA = {
       "n_healthy": 215,
       "n_faulty": 367,
       "n_alerts": 7,
-      "evaluation_ts": "2026-10-21T08:29:30.174845+00:00",
+      "evaluation_ts": "2026-10-24T14:14:50.945980+00:00",
       "data_provenance": "SYNTHETIC -- semi-synthetic swapping network benchmark",
       "note": "Results from controlled synthetic benchmark. Not representative of real-world field performance."
     }

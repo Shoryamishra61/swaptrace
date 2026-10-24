@@ -43,7 +43,7 @@
     "n_healthy": 215,
     "n_faulty": 367,
     "n_alerts": 7,
-    "evaluation_ts": "2026-10-21T08:29:30.174845+00:00",
+    "evaluation_ts": "2026-10-24T14:14:50.945980+00:00",
     "data_provenance": "SYNTHETIC -- semi-synthetic swapping network benchmark",
     "note": "Results from controlled synthetic benchmark. Not representative of real-world field performance."
   }

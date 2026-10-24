@@ -190,4 +190,10 @@ Path("web").mkdir(exist_ok=True)
 with open("web/data.js", "w", encoding="utf-8") as f:
     f.write("window.SWAPTRACE_DATA = " + json.dumps(web_data, indent=2) + ";\n")
 
-print("Generated web/data.js successfully!")
+# Keep the React console's data module in sync with the same artifacts
+Path("src/data").mkdir(parents=True, exist_ok=True)
+with open("src/data/telemetryData.js", "w", encoding="utf-8") as f:
+    f.write("export const telemetryData = " + json.dumps(web_data, indent=2) + ";\n")
+    f.write("export default telemetryData;\n")
+
+print("Generated web/data.js and src/data/telemetryData.js successfully!")

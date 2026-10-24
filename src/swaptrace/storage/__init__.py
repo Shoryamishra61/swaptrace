@@ -45,6 +45,9 @@ class SwapTraceDB:
         self.db_path = str(db_path)
         self.data_dir = data_dir
         self.conn = duckdb.connect(self.db_path)
+        # Keep DuckDB's footprint bounded and let it spill to disk under pressure
+        self.conn.execute("SET memory_limit='1GB'")
+        self.conn.execute("SET temp_directory='.duckdb_tmp'")
         self._init_schema()
 
     def _init_schema(self) -> None:
@@ -209,6 +212,7 @@ class SwapTraceDB:
         if not rows:
             return 0
         df = pl.DataFrame(rows)
+        self.conn.register("df", df)
         cols = ", ".join(rows[0].keys())
         self.conn.execute(f"""
             INSERT OR REPLACE INTO sessions ({cols})
@@ -246,6 +250,7 @@ class SwapTraceDB:
         if not rows:
             return 0
         df = pl.DataFrame(rows)
+        self.conn.register("df", df)
         self.conn.execute("INSERT OR REPLACE INTO features SELECT * FROM df")
         return len(rows)
 
@@ -328,6 +333,7 @@ class SwapTraceDB:
         if not path.exists():
             return 0
         df = pl.read_parquet(str(path))
+        self.conn.register("df", df)
         self.conn.execute(f"INSERT OR REPLACE INTO {table} SELECT * FROM df")
         return len(df)
 

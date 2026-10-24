@@ -114,6 +114,38 @@ class PackDockGraph:
     def dock_crossing_count(self, dock_id: str) -> int:
         return len(self.dock_to_packs.get(dock_id, set()))
 
+    def session_pack_map(self) -> dict[str, str]:
+        """Map session_id → pack_id for every observed crossing."""
+        return {
+            sid: pack for (pack, _dock), sids in self.crossing_sessions.items() for sid in sids
+        }
+
+    def dock_anomaly_packs(
+        self,
+        dock_id: str,
+        feature_id: str,
+        session_pack: dict[str, str],
+    ) -> set[str]:
+        """Packs that owned sessions in which a dock-feature anomaly fired at this dock."""
+        return {
+            session_pack[rec["session_id"]]
+            for rec in self.anomaly_registry.get((dock_id, feature_id), [])
+            if rec["session_id"] in session_pack
+        }
+
+    def pack_has_dock_anomaly(
+        self,
+        pack_id: str,
+        dock_id: str,
+        feature_id: str,
+        session_pack: dict[str, str],
+    ) -> bool:
+        """True if a dock-feature anomaly at dock_id occurred in a session owned by pack_id."""
+        return any(
+            session_pack.get(rec["session_id"]) == pack_id
+            for rec in self.anomaly_registry.get((dock_id, feature_id), [])
+        )
+
 
 def attribute_session(
     session_id: str,
@@ -174,20 +206,17 @@ def attribute_session(
         crossing_support["dock_independent_packs"] = dock_crossing
 
         # Check anomaly registry for other packs at this dock
+        session_pack = graph.session_pack_map()
         anomalous_other_packs: set[str] = set()
         for fid in [f.feature_id for f in dock_features]:
-            for other_pack_id in other_packs_at_dock:
-                # Check if other pack showed anomaly at this dock
-                dock_anomalies = graph.anomaly_registry.get((dock_id, fid), [])
-                if dock_anomalies:
-                    anomalous_other_packs.update([dock_id])
+            anomalous_other_packs |= graph.dock_anomaly_packs(dock_id, fid, session_pack) - {pack_id}
 
         # Check: does this pack behave normally elsewhere?
         pack_other_docks = graph.get_independent_docks_for_pack(pack_id) - {dock_id}
         pack_anomalous_elsewhere = False
         for other_dock in pack_other_docks:
             for fid in [f.feature_id for f in dock_features]:
-                if graph.anomaly_registry.get((other_dock, fid)):
+                if graph.pack_has_dock_anomaly(pack_id, other_dock, fid, session_pack):
                     pack_anomalous_elsewhere = True
                     break
 
@@ -222,6 +251,17 @@ def attribute_session(
                         description="Sibling docks at station show no similar anomaly",
                         entity_id=station_id,
                         count=len(sibling_docks),
+                    )
+                )
+            if anomalous_other_packs:
+                evidence[OwnerCategory.CHARGER_DOCK.value].append(
+                    EvidenceItem(
+                        description=(
+                            f"{len(anomalous_other_packs)} other pack(s) showed the same "
+                            f"dock-feature anomaly at {dock_id} — anomaly follows the dock"
+                        ),
+                        entity_id=dock_id,
+                        count=len(anomalous_other_packs),
                     )
                 )
             if len(evidence[OwnerCategory.CHARGER_DOCK.value]) >= 2:

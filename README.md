@@ -221,7 +221,7 @@ uv run python -m swaptrace.cli demo
 uv run python -m swaptrace.cli eval
 
 # 6. Launch Streamlit operations dashboard
-uv run streamlit run app/main.py
+uv run streamlit run app/dashboard.py
 ```
 
 ---
@@ -255,7 +255,7 @@ swaptrace/
 │   ├── unit/test_physics.py         # Unit tests on physical integration & residuals
 │   └── integration/test_pipeline.py # End-to-end integration & scenario tests
 ├── docs/                            # Formal specifications (PRD, SRS, DOD, Architecture)
-├── artifacts/                       # Machine-readable output (alerts.json, evaluation_report.json)
+├── artifacts/                       # Machine-readable output (alerts.json, attribution_results.json, evaluation_report.json)
 ├── vercel.json                      # Vercel deployment configuration
 ├── Makefile                         # Unified developer commands
 └── pyproject.toml                   # Project metadata & locked dependencies
