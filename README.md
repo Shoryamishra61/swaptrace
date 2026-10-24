@@ -5,6 +5,7 @@
 [![CI Quality Gates](https://github.com/Shoryamishra61/swaptrace/actions/workflows/ci.yml/badge.svg)](https://github.com/Shoryamishra61/swaptrace/actions/workflows/ci.yml)
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-green.svg)](LICENSE)
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-Live_Console-black?logo=vercel)](https://swaptrace.vercel.app)
 
 > **Submission for Coulomb AI · Founding Engineer Challenge**  
 > Reference Client Context: [Gogoro Network](https://www.gogoro.com/gogoro-network/) — Two-Wheeler Battery Swapping Operator
@@ -207,6 +208,7 @@ A0–A2 have attribution F1 = 0.0 by construction: they produce no attribution l
 
 The repository ships a React + Lucide **Industrial Operations Console** (Apple HIG light-mode design system) that renders the real pipeline artifacts — alerts with evidence and counterevidence, attribution scenario proofs, waveform studio, and a reviewer-defense view. Its data module (`src/data/telemetryData.js`) is regenerated from `artifacts/` by `scripts/export_web_data.py`, so the UI can never silently diverge from pipeline output.
 
+* **Live Deployment:** [swaptrace.vercel.app](https://swaptrace.vercel.app)
 * **Local Run:** `npm install && npx vite` (dev) or `npx vite build` (production bundle to `dist/`)
 * **Data Refresh:** `uv run python scripts/export_web_data.py` after any pipeline re-run
 * **Deployment:** static `dist/` on Vercel free tier (`vercel.json` sets the Vite framework and output directory)
