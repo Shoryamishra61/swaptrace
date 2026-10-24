@@ -69,6 +69,4 @@ addopts = "-v --tb=short"
 python_files = ["test_*.py"]
 python_functions = ["test_*"]
 
-[tool.vercel]
-entrypoint = "api/index.py"
 
