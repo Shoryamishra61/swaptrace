@@ -12,15 +12,12 @@ Reconstructs charging sessions from telemetry events with:
 from __future__ import annotations
 
 from collections import defaultdict
-from datetime import datetime, timezone
-from typing import Any
 
 from swaptrace.contracts import (
     ChargeSession,
     ChargeStatus,
     DataQualityStatus,
     PhaseInterval,
-    SourceType,
     TelemetryEvent,
 )
 from swaptrace.observability import get_logger

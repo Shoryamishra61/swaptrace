@@ -29,7 +29,12 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
-from swaptrace.contracts import FeatureRecord
+from swaptrace.contracts import (
+    AttributionResult,
+    AttributionStatus,
+    FeatureRecord,
+    OwnerCategory,
+)
 from swaptrace.observability import configure_logging, get_logger
 
 app = typer.Typer(
@@ -341,27 +346,28 @@ def eval(
 
     simple_alerts = [SimpleAlert(d) for d in alert_dicts]
 
-    # Load real attribution results (including abstentions) if available
     attr_path = Path("artifacts/alerts/attribution_results.json")
     if attr_path.exists():
         with open(attr_path) as f:
             attr_raw = json.load(f)
-        from swaptrace.contracts import AttributionResult
         attr_results = [AttributionResult.model_validate(d) for d in attr_raw]
     else:
-        # Fallback from alerts
-        class SimpleAttr:
-            def __init__(self, d: dict) -> None:
-                self.session_id = d.get("supporting_session_ids", [None])[0]
-                self.selected_owner = type("O", (), {"value": d.get("owner_category", "")})()
-                self.attribution_status = type("S", (), {"value": "ATTRIBUTED"})()
-
+        # Fallback: reconstruct minimal contract objects from alert episodes
         attr_results = []
         for d in alert_dicts:
+            try:
+                owner = OwnerCategory(d.get("owner_category", ""))
+            except ValueError:
+                owner = None
             for sid in d.get("supporting_session_ids", []):
-                ar = SimpleAttr(d)
-                ar.session_id = sid
-                attr_results.append(ar)
+                attr_results.append(
+                    AttributionResult(
+                        session_id=sid,
+                        selected_owner=owner,
+                        attribution_status=AttributionStatus.ATTRIBUTED,
+                        explanation=f"Reconstructed from alert episode {d.get('episode_key', '')}",
+                    )
+                )
 
     # Also add abstentions from the dataset
     # Use test portion (last 30%)

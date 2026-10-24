@@ -13,7 +13,6 @@ Source is clearly labeled SOURCE_TYPE = SYNTHETIC or INJECTED.
 
 from __future__ import annotations
 
-import hashlib
 import random
 import uuid
 from dataclasses import dataclass
@@ -307,7 +306,6 @@ class BenchmarkGenerator:
     ) -> ChargeSession:
         """Generate one charging session with physics-consistent values."""
         params = CHEMISTRY_PARAMS[pack.chemistry_id]
-        chem_key = hashlib.md5(pack.chemistry_id.encode()).hexdigest()[:8]
 
         session_id = (
             f"SES-{start_ts.strftime('%Y%m%d%H%M%S')}-{pack.pack_id[-6:]}-{dock.dock_id[-4:]}"
@@ -349,31 +347,7 @@ class BenchmarkGenerator:
 
         end_ts = start_ts + timedelta(seconds=total_duration_s)
 
-        # Pack temperature rise (I²R heating)
-        ir_scale = (
-            pack.internal_resistance_scale
-            if fault_active_pack
-            and pack.fault_type in ("pack_self_heating", "pack_electrical_response")
-            else 1.0
-        )
-        r_effective = params["internal_resistance_ohm"] * ir_scale
-        heat_power_w = (effective_current**2) * r_effective
-        temp_rise_c = heat_power_w * total_duration_s / params["thermal_mass_j_per_k"]
-
-        if fault_active_env and station.thermal_fault_active:
-            temp_rise_c += 8.0  # elevated ambient increases pack temp
-
         initial_temp_c = ambient_c + self.np_rng.normal(2, 0.5)
-        final_temp_c = min(initial_temp_c + temp_rise_c, params["max_temp_c"])
-
-        # Contact resistance voltage drop (dock fault)
-        contact_r_mohm = (
-            dock.contact_resistance_mohm
-            if fault_active_dock and dock.fault_type == "dock_contact_degradation"
-            else dock.contact_resistance_mohm
-        )
-        if fault_active_dock and dock.fault_type == "dock_contact_degradation":
-            contact_r_mohm = dock.contact_resistance_mohm
 
         # Integrated charge/energy
         integrated_charge_ah = charge_needed_ah * self.np_rng.normal(1.0, 0.01)

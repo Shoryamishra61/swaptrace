@@ -66,15 +66,14 @@ def validate_telemetry_event(event: TelemetryEvent) -> ValidationResult:
     # Numeric range validation
     for field_name, (lo, hi) in BOUNDS.items():
         val = getattr(event, field_name, None)
-        if val is not None:
-            if not (lo <= val <= hi):
-                reasons.append(f"OUT_OF_RANGE:{field_name}={val:.3f},[{lo},{hi}]")
-                if field_name in ("pack_temperature_c", "soc_pct"):
-                    quarantine_level = "REJECT"
-                else:
-                    quarantine_level = max(
-                        quarantine_level, "WARN", key=lambda x: {"WARN": 0, "REJECT": 1}.get(x, 0)
-                    )
+        if val is not None and not (lo <= val <= hi):
+            reasons.append(f"OUT_OF_RANGE:{field_name}={val:.3f},[{lo},{hi}]")
+            if field_name in ("pack_temperature_c", "soc_pct"):
+                quarantine_level = "REJECT"
+            else:
+                quarantine_level = max(
+                    quarantine_level, "WARN", key=lambda x: {"WARN": 0, "REJECT": 1}.get(x, 0)
+                )
 
     # Physical consistency: if pack_voltage < cutoff → suspect
     if event.pack_voltage_v is not None and event.pack_voltage_v < 30.0:
@@ -116,8 +115,11 @@ def validate_session(session: ChargeSession) -> ValidationResult:
         quarantine_level = "REJECT"
 
     # SOC sanity
-    if session.initial_soc_pct is not None and session.final_soc_pct is not None:
-        if session.final_soc_pct < session.initial_soc_pct - 5.0:  # allow small measurement noise
+    if (
+        session.initial_soc_pct is not None
+        and session.final_soc_pct is not None
+        and session.final_soc_pct < session.initial_soc_pct - 5.0
+    ):  # allow small measurement noise
             reasons.append(
                 f"SOC_REGRESSION:init={session.initial_soc_pct:.1f}%,final={session.final_soc_pct:.1f}%"
             )

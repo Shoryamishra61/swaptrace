@@ -99,9 +99,9 @@ def compute_metrics(
     owners = ["CHARGER_DOCK", "PACK", "CELL_CHEMISTRY", "ENVIRONMENT"]
     confusion = {o: {o2: 0 for o2 in owners + ["ABSTAIN"]} for o in owners + ["HEALTHY"]}
 
-    per_owner_tp = defaultdict(int)
-    per_owner_fp = defaultdict(int)
-    per_owner_fn = defaultdict(int)
+    per_owner_tp: dict[str, int] = defaultdict(int)
+    per_owner_fp: dict[str, int] = defaultdict(int)
+    per_owner_fn: dict[str, int] = defaultdict(int)
 
     abstention_count = 0
     for gt in ground_truth:

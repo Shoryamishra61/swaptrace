@@ -12,8 +12,6 @@ NEVER fabricates values when sensors are unavailable.
 
 from __future__ import annotations
 
-import math
-from dataclasses import dataclass
 from typing import Any
 
 import numpy as np
@@ -77,7 +75,7 @@ def integrate_energy_wh(
     if not (len(currents_a) == len(voltages_v) == len(timestamps_s)):
         raise ValueError("All input arrays must be same length")
 
-    powers_w = [c * v for c, v in zip(currents_a, voltages_v)]
+    powers_w = [c * v for c, v in zip(currents_a, voltages_v, strict=True)]
     total_ws = 0.0
     for i in range(len(powers_w) - 1):
         dt = timestamps_s[i + 1] - timestamps_s[i]

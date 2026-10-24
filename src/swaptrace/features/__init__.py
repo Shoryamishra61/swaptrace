@@ -11,7 +11,6 @@ Every feature:
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
 from typing import Any
 
 import numpy as np
@@ -241,7 +240,7 @@ def compute_dock_cc_current_residual_feature(
         context_signature={
             "commanded_a": commanded,
             "delivered_a": delivered,
-            "bms_limited": True if result.get("bms_limited") else False,
+            "bms_limited": bool(result.get("bms_limited")),
             "bms_limit_reason": bms_limit if result.get("bms_limited") else None,
             "delivery_ratio": ratio,
         },

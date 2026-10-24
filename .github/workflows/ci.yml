@@ -7,8 +7,34 @@ on:
     branches: [main, master]
 
 jobs:
+  quality:
+    name: Lint & Typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+
+      - name: Sync Dependencies
+        run: uv sync --extra dev
+
+      - name: Ruff Lint
+        run: uv run ruff check src/ tests/ benchmark/
+
+      - name: Mypy Typecheck
+        run: uv run mypy src/swaptrace/ --ignore-missing-imports --no-strict-optional
+
   test:
-    name: Unit & Integration Tests
+    name: Unit, Integration & Property Tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -35,3 +61,22 @@ jobs:
 
       - name: Run Formal Evaluation & Scenario Proofs
         run: uv run python -m swaptrace.cli eval
+
+  frontend:
+    name: Console Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Console
+        run: npx vite build

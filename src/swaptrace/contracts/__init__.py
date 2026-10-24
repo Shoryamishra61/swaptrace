@@ -7,8 +7,8 @@ All typed boundaries for the pipeline. Every module must import from here.
 from __future__ import annotations
 
 import uuid
-from datetime import UTC, datetime, timezone
-from enum import Enum
+from datetime import UTC, datetime
+from enum import StrEnum
 from typing import Any
 
 from pydantic import BaseModel, Field, field_validator, model_validator
@@ -18,27 +18,27 @@ from pydantic import BaseModel, Field, field_validator, model_validator
 # ---------------------------------------------------------------------------
 
 
-class SourceType(str, Enum):
+class SourceType(StrEnum):
     PUBLIC = "PUBLIC"
     SYNTHETIC = "SYNTHETIC"
     INJECTED = "INJECTED"
 
 
-class OwnerCategory(str, Enum):
+class OwnerCategory(StrEnum):
     CHARGER_DOCK = "CHARGER_DOCK"
     PACK = "PACK"
     CELL_CHEMISTRY = "CELL_CHEMISTRY"
     ENVIRONMENT = "ENVIRONMENT"
 
 
-class AttributionStatus(str, Enum):
+class AttributionStatus(StrEnum):
     ATTRIBUTED = "ATTRIBUTED"
     INSUFFICIENT_EVIDENCE = "INSUFFICIENT_EVIDENCE"
     CONFLICTING_EVIDENCE = "CONFLICTING_EVIDENCE"
     NOT_ELIGIBLE = "NOT_ELIGIBLE"
 
 
-class AlertSeverity(str, Enum):
+class AlertSeverity(StrEnum):
     CRITICAL = "CRITICAL"
     HIGH = "HIGH"
     MEDIUM = "MEDIUM"
@@ -46,7 +46,7 @@ class AlertSeverity(str, Enum):
     INSUFFICIENT_EVIDENCE = "INSUFFICIENT_EVIDENCE"
 
 
-class AlertStatus(str, Enum):
+class AlertStatus(StrEnum):
     OPEN = "OPEN"
     ACKNOWLEDGED = "ACKNOWLEDGED"
     INVESTIGATING = "INVESTIGATING"
@@ -55,20 +55,20 @@ class AlertStatus(str, Enum):
     REOPENED = "REOPENED"
 
 
-class ChargeStatus(str, Enum):
+class ChargeStatus(StrEnum):
     COMPLETE = "COMPLETE"
     PARTIAL = "PARTIAL"
     ABORTED = "ABORTED"
     QUALITY_REJECTED = "QUALITY_REJECTED"
 
 
-class DataQualityStatus(str, Enum):
+class DataQualityStatus(StrEnum):
     OK = "OK"
     WARNING = "WARNING"
     REJECTED = "REJECTED"
 
 
-class FeatureValidityStatus(str, Enum):
+class FeatureValidityStatus(StrEnum):
     VALID = "VALID"
     NOT_COMPUTABLE = "NOT_COMPUTABLE"
     SENSOR_MISSING = "SENSOR_MISSING"
@@ -77,7 +77,7 @@ class FeatureValidityStatus(str, Enum):
     OUT_OF_DISTRIBUTION = "OUT_OF_DISTRIBUTION"
 
 
-class SensorCapability(str, Enum):
+class SensorCapability(StrEnum):
     CHARGER_CURRENT = "charger_current"
     CHARGER_VOLTAGE = "charger_voltage"
     PACK_CURRENT = "pack_current"

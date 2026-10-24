@@ -9,7 +9,7 @@ Uses robust statistics (MAD, median) to resist outlier contamination.
 
 from __future__ import annotations
 
-from datetime import UTC, datetime, timezone
+from datetime import UTC, datetime
 from typing import Any
 
 import numpy as np
@@ -94,14 +94,13 @@ class ContextualBaseline:
         rows = sessions_df.to_dicts()
         valid_pairs: list[tuple[tuple[Any, ...], float]] = []
 
-        for row, val in zip(rows, values_series):
+        for row, val in zip(rows, values_series, strict=False):
             if val is None or not np.isfinite(val):
                 continue
             # Point-in-time: exclude future
             ts = row.get("start_ts")
-            if ts and hasattr(ts, "timestamp"):
-                if ts.replace(tzinfo=UTC) > self.training_cutoff:
-                    continue
+            if ts and hasattr(ts, "timestamp") and ts.replace(tzinfo=UTC) > self.training_cutoff:
+                continue
             key = self._context_key(row)
             valid_pairs.append((key, val))
 
@@ -232,7 +231,7 @@ class BaselineManager:
             # Align values to matched sessions
             sess_ids_set = set(matched_sessions.get_column("session_id").to_list())
             aligned_values = []
-            for sid, val in zip(session_ids, values):
+            for sid, val in zip(session_ids, values, strict=False):
                 if sid in sess_ids_set:
                     aligned_values.append(val)
 

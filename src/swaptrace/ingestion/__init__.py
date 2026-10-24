@@ -11,7 +11,7 @@ All transformations and missing fields are recorded in the ingestion manifest.
 from __future__ import annotations
 
 import json
-from datetime import UTC, datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -128,12 +128,9 @@ class BenchmarkAdapter:
         gt_path = cache_dir / "ground_truth.json"
 
         if sessions_path.exists():
+            # Cached sessions exist — but events are regenerated deterministically
+            # so the full (sessions, events, ground_truth) triple stays consistent
             logger.info("loading_cached_sessions", path=str(sessions_path))
-            import polars as pl
-
-            df = pl.read_parquet(str(sessions_path))
-            # Reload from cache — return sessions + generate events fresh
-            # (Events are large; regenerate deterministically)
             sessions, events, ground_truth = self.generate()
             return sessions, events, ground_truth
 

@@ -5,7 +5,6 @@
 [![CI Quality Gates](https://github.com/Shoryamishra61/swaptrace/actions/workflows/ci.yml/badge.svg)](https://github.com/Shoryamishra61/swaptrace/actions/workflows/ci.yml)
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-green.svg)](LICENSE)
-[![Vercel Deployment](https://img.shields.io/badge/Vercel-Live_Console-black?logo=vercel)](https://swaptrace.vercel.app)
 
 > **Submission for Coulomb AI · Founding Engineer Challenge**  
 > Reference Client Context: [Gogoro Network](https://www.gogoro.com/gogoro-network/) — Two-Wheeler Battery Swapping Operator
@@ -204,14 +203,13 @@ A0–A2 have attribution F1 = 0.0 by construction: they produce no attribution l
 
 ---
 
-## 6. Live Web Console & Vercel Free Tier Deployment
+## 6. Web Operations Console
 
-The repository includes a modern, high-density **Industrial Operations Console** deployed on Vercel free tier with **zero AI slop** and strict compliance with Human Interface Guidelines:
+The repository ships a React + Lucide **Industrial Operations Console** (Apple HIG light-mode design system) that renders the real pipeline artifacts — alerts with evidence and counterevidence, attribution scenario proofs, waveform studio, and a reviewer-defense view. Its data module (`src/data/telemetryData.js`) is regenerated from `artifacts/` by `scripts/export_web_data.py`, so the UI can never silently diverge from pipeline output.
 
-* **Live Deployment:** [swaptrace.vercel.app](https://swaptrace.vercel.app)
-* **Local Run:** Open [`web/index.html`](file:///c:/code_shit/projects/couloumb%20ai/web/index.html) or run `python -m http.server 3000` inside `web/`.
-* **Zero Build Step:** 100% pure semantic HTML5, Vanilla CSS token design system, and Vanilla JavaScript.
-* **Accessibility & Performance:** 0 high/medium accessibility issues verified via `ui_audit.py`, full WCAG keyboard navigation (`tabindex`, `role="tablist"`), and `@media (prefers-reduced-motion)` support.
+* **Local Run:** `npm install && npx vite` (dev) or `npx vite build` (production bundle to `dist/`)
+* **Data Refresh:** `uv run python scripts/export_web_data.py` after any pipeline re-run
+* **Deployment:** static `dist/` on Vercel free tier (`vercel.json` sets the Vite framework and output directory)
 
 ---
 
@@ -249,11 +247,6 @@ uv run streamlit run app/dashboard.py
 
 ```
 swaptrace/
-├── web/                             # Zero-slop Vercel Ops Console (HTML5, Vanilla CSS, JS)
-│   ├── index.html                   # High-density industrial SCADA UI
-│   ├── styles.css                   # Tokenized Vanilla CSS design system
-│   ├── app.js                       # Interactive SVG charts & bipartite visualizer
-│   └── data.js                      # Embedded benchmark dataset (offline & portable)
 ├── src/swaptrace/                   # Modular Python 3.12 Core Package
 │   ├── contracts/                   # Canonical Pydantic schemas (all modules import here)
 │   ├── ingestion/                   # Telemetry adapters and synthetic generator
@@ -268,11 +261,18 @@ swaptrace/
 │   ├── evaluation/                  # Scenario pass/fail & metric calculations
 │   ├── storage/                     # DuckDB + Parquet local persistence layer
 │   └── observability/               # Structured logging & run manifests
+├── src/App.jsx + src/views/         # React operations console (Vite + Lucide)
+│   ├── views/FleetOverviewView.jsx  #   Fleet KPIs & station health
+│   ├── views/AttributionEngineView.jsx #   Physics feature catalog & metrics
+│   ├── views/ReviewerDefenseView.jsx   #   Adversarial reviewer defense proofs
+│   └── data/telemetryData.js        #   Auto-generated from artifacts/ (do not hand-edit)
+├── scripts/export_web_data.py       # Regenerates console data from artifacts
 ├── benchmark/                       # Seeded swapping network topology generator
 ├── app/                             # Streamlit Python dashboard (alternative local UI)
 ├── tests/                           # 55 unit, integration & property tests (100% passing)
 │   ├── unit/test_physics.py         # Unit tests on physical integration & residuals
-│   └── integration/test_pipeline.py # End-to-end integration & scenario tests
+│   ├── integration/test_pipeline.py # End-to-end integration & scenario tests
+│   └── property/test_properties.py  # Hypothesis invariant tests
 ├── docs/                            # Formal specifications (PRD, SRS, DOD, Architecture)
 ├── artifacts/                       # Machine-readable output (alerts.json, attribution_results.json, evaluation_report.json)
 ├── vercel.json                      # Vercel deployment configuration

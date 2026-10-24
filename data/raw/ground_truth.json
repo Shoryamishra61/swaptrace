@@ -7822,8 +7822,8 @@
       "PACK"
     ],
     "fault_types": [
-      "pack_self_heating",
-      "dock_current_clipping"
+      "dock_current_clipping",
+      "pack_self_heating"
     ],
     "concurrent_faults": true
   },
@@ -7899,8 +7899,8 @@
       "PACK"
     ],
     "fault_types": [
-      "pack_self_heating",
-      "dock_current_clipping"
+      "dock_current_clipping",
+      "pack_self_heating"
     ],
     "concurrent_faults": true
   },
@@ -13425,8 +13425,8 @@
       "CELL_CHEMISTRY"
     ],
     "fault_types": [
-      "chemistry_curve_drift",
-      "dock_contact_degradation"
+      "dock_contact_degradation",
+      "chemistry_curve_drift"
     ],
     "concurrent_faults": true
   },
@@ -13503,8 +13503,8 @@
       "CELL_CHEMISTRY"
     ],
     "fault_types": [
-      "chemistry_curve_drift",
-      "dock_contact_degradation"
+      "dock_contact_degradation",
+      "chemistry_curve_drift"
     ],
     "concurrent_faults": true
   },
@@ -16295,8 +16295,8 @@
       "PACK"
     ],
     "fault_types": [
-      "pack_self_heating",
-      "dock_current_clipping"
+      "dock_current_clipping",
+      "pack_self_heating"
     ],
     "concurrent_faults": true
   },
@@ -16372,8 +16372,8 @@
       "PACK"
     ],
     "fault_types": [
-      "pack_self_heating",
-      "dock_current_clipping"
+      "dock_current_clipping",
+      "pack_self_heating"
     ],
     "concurrent_faults": true
   },
@@ -16828,8 +16828,8 @@
       "CELL_CHEMISTRY"
     ],
     "fault_types": [
-      "chemistry_curve_drift",
-      "dock_contact_degradation"
+      "dock_contact_degradation",
+      "chemistry_curve_drift"
     ],
     "concurrent_faults": true
   },
@@ -18210,8 +18210,8 @@
       "PACK"
     ],
     "fault_types": [
-      "pack_self_heating",
-      "dock_current_clipping"
+      "dock_current_clipping",
+      "pack_self_heating"
     ],
     "concurrent_faults": true
   },
@@ -18287,8 +18287,8 @@
       "PACK"
     ],
     "fault_types": [
-      "pack_self_heating",
-      "dock_current_clipping"
+      "dock_current_clipping",
+      "pack_self_heating"
     ],
     "concurrent_faults": true
   },
@@ -20204,8 +20204,8 @@
       "PACK"
     ],
     "fault_types": [
-      "pack_self_heating",
-      "dock_current_clipping"
+      "dock_current_clipping",
+      "pack_self_heating"
     ],
     "concurrent_faults": true
   },
@@ -20281,8 +20281,8 @@
       "PACK"
     ],
     "fault_types": [
-      "pack_self_heating",
-      "dock_current_clipping"
+      "dock_current_clipping",
+      "pack_self_heating"
     ],
     "concurrent_faults": true
   },
