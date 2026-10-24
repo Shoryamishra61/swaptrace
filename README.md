@@ -18,6 +18,17 @@ SwapTrace is a production-oriented diagnostic feature pipeline and decision-supp
 
 In an electric two-wheeler swapping network (such as the Gogoro Network), every battery swap ends in a **controlled charging session at a known station dock**. Each charging session represents a repeatable, instrumented health check on both the battery pack and the charging infrastructure.
 
+### Requirements Traceability
+
+| Problem-statement requirement (Coulomb AI, verbatim) | Where it is satisfied |
+|:---|:---|
+| *"Build a feature pipeline that turns charging-session telemetry into anomaly signals"* | 10-stage pipeline: ingestion → validation → sessionization → 8 physics features → contextual baselines → residual detection → attribution → alert policy (§3); metrics in §5 |
+| *"every swap ends in a controlled charge at a known dock … each session is a repeatable health check"* | The pack–dock bipartite graph treats each session as one crossed observation; pack rotation supplies the counterfactual contrasts (§2) |
+| *"is the problem the charger/dock, the pack, the cell chemistry, or the environment?"* | Every feature is registered to exactly one of the four owners; the attribution engine answers per session and abstains when crossings are insufficient (§2, §4, scenario gates S01–S05 in §5) |
+| *"A feature that cannot point to an owner and an action is out of scope"* | The `AlertEpisode` schema structurally rejects alerts lacking owner, responsible team, evidence, and a concrete recommended action |
+| *"Assume or create datasets based on your understanding"* | Seeded physics benchmark with labeled injected faults and disclosed provenance (§9) |
+| *"Client for Reference: Gorogo — battery swapping operator"* | Two-wheeler swap-network topology (4 stations × 4 docks, rotating packs), ops-console UX designed for fleet operations engineers (§6) |
+
 ### The Central Diagnostic Problem
 
 When a charging session exhibits a symptom—such as a current deficit, slow charging, or elevated temperature—generic anomaly detection is worse than useless: **it flags that something is weird without identifying who must act.**
@@ -69,6 +80,12 @@ $$\text{Dock Effect} = \text{Median}\left(\{r_{d, p} \mid p \in \text{Packs}(d)\
 
 $$\text{Pack Effect} = \text{Median}\left(\{r_{d, p} \mid d \in \text{Docks}(p)\}\right) - \text{Median}\left(\{r_{d, p'} \mid p' \neq p\}\right)$$
 
+The shipped engine operationalizes these contrasts as **independent-crossing hypothesis
+tests** rather than literal median subtractions: a hypothesis is credited only when at least
+2 independent counterparties exist (≥2 packs per dock, ≥2 docks per pack, ≥3 packs per station),
+the peer set is verified clean in the anomaly registry, and the subject asset is verified normal
+elsewhere. Below those thresholds the engine abstains.
+
 ```
  CASE A: DOCK FAULT ISOLATION              CASE B: PACK FAULT ISOLATION
  ────────────────────────────              ────────────────────────────
@@ -89,12 +106,10 @@ $$\text{Pack Effect} = \text{Median}\left(\{r_{d, p} \mid d \in \text{Docks}(p)\
 ## 3. System Architecture & End-to-End Pipeline
 
 ```
-┌─────────────────┐     ┌──────────────────────┐
-│  PUBLIC SOURCE  │     │ SEEDED SWAP BENCHMARK│
-│ (Real CC/CV fit)│     │  (1,937 sessions)    │
-└────────┬────────┘     └──────────┬───────────┘
-         │                         │
-         └───────────┬─────────────┘
+┌──────────────────────────────────────────┐
+│ SEEDED PHYSICS BENCHMARK  (seed = 42)    │
+│ 1,937 sessions · 252k events · 8 faults  │
+└────────────────────┬─────────────────────┘
                      ▼
        ┌───────────────────────────┐
        │     RAW INGESTION         │ TelemetryEvent schema validation
@@ -171,7 +186,7 @@ Evaluated strictly on held-out test partitions ($N=582$ test sessions, 5 alert e
 | **Safe Abstentions** | **47 Sessions** | Safely withheld from dispatch due to low asset crossing ($<2$) |
 | **Attribution Macro-F1**| **0.164** | Conservative multiclass attribution across 4 operational owners |
 
-### Mandatory Scenario Demonstrations
+### Scenario Verification Gates
 
 All 5 mandatory scenario verification gates pass with automated integration proofs:
 
@@ -286,7 +301,7 @@ swaptrace/
 
 ## 9. Scientific Integrity & Disclosures
 
-1. **Synthetic Data Disclosure:** Telemetry events and network topology are generated from a controlled, seeded physical simulation ($N=1,937$ sessions) capturing real battery physics (Ohm's law, Arrhenius thermal dissipation, Butler-Volmer polarization). They do not represent proprietary or confidential data from Gogoro Inc.
+1. **Synthetic Data Disclosure:** Telemetry events and network topology are generated from a controlled, seeded physical simulation ($N=1,937$ sessions) capturing first-order battery physics (internal-resistance polarization under Ohm's law, I²R heating against a thermal mass, CC-CV taper and BMS current limiting). They do not represent proprietary or confidential data from Gogoro Inc.
 2. **Deterministic Reproducibility:** Every scenario, feature calculation, baseline model, and evaluation metric is fully reproducible from fixed seed `42`.
 3. **Conservative Safety Principles:** SwapTrace acts exclusively as decision support for authorized human engineers. It never executes autonomous physical power adjustments or equipment shutdowns.
 
